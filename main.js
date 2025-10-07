@@ -18,14 +18,107 @@ if (copyBtn) {
   });
 }
 
-// Placeholder for Event Brief modal (to be implemented next)
-const briefBtn = document.getElementById('btn-brief');
-if (briefBtn) {
-  briefBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('Event Brief modal coming next.');
+// Event Brief modal open/close
+(() => {
+  const briefBtn = document.getElementById('btn-brief');
+  const modal = document.getElementById('brief-modal');
+  if (!briefBtn || !modal) return;
+  const btnClose = document.getElementById('brief-close');
+  const btnOk = document.getElementById('brief-ok');
+  const backdrop = document.getElementById('brief-backdrop');
+  const panel = document.getElementById('brief-panel');
+
+  const open = () => {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    // start from initial state (already set in HTML)
+    // animate to visible
+    requestAnimationFrame(() => {
+      backdrop && backdrop.classList.remove('opacity-0');
+      if (panel) {
+        panel.classList.remove('opacity-0', 'translate-y-2', 'scale-95');
+      }
+    });
+  };
+  const close = () => {
+    // animate out
+    backdrop && backdrop.classList.add('opacity-0');
+    if (panel) {
+      panel.classList.add('opacity-0', 'translate-y-2', 'scale-95');
+    }
+    const done = () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      panel && panel.removeEventListener('transitionend', done);
+    };
+    // hide after transition
+    if (panel) {
+      panel.addEventListener('transitionend', done, { once: true });
+    } else {
+      // fallback
+      setTimeout(done, 200);
+    }
+  };
+
+  briefBtn.addEventListener('click', (e) => { e.preventDefault(); open(); });
+  btnClose && btnClose.addEventListener('click', close);
+  btnOk && btnOk.addEventListener('click', close);
+  // Close on backdrop click
+  modal.addEventListener('click', (e) => {
+    // if clicked on the dark overlay (first child) or outside content
+    if (e.target === modal || (e.target instanceof Element && e.target.classList.contains('bg-black/40'))) {
+      close();
+    }
   });
-}
+  // Close on Escape
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
+})();
+
+// Lenis smooth scrolling with dynamic offset for fixed header
+(() => {
+  // Skip if Lenis global not present or user prefers reduced motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || typeof window.Lenis === 'undefined') return;
+
+  const header = document.querySelector('header');
+  const getOffset = () => {
+    const h = header ? header.offsetHeight : 72;
+    return h + 12; // little extra space below navbar
+  };
+
+  const lenis = new Lenis({
+    // default duration/easing produce a subtle, not-overbearing feel
+    duration: 1.0,
+  });
+
+  const raf = (time) => {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  };
+  requestAnimationFrame(raf);
+
+  // Route internal anchor clicks through Lenis with offset
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href') || '';
+      // ignore just '#'
+      if (href.length <= 1) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -getOffset() });
+
+      // close mobile menu if open
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navToggle = document.getElementById('nav-toggle');
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        navToggle && navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+})();
 
 // Mobile nav toggle with animation
 const navToggle = document.getElementById('nav-toggle');
@@ -92,4 +185,19 @@ if (navToggle && mobileMenu) {
   window.addEventListener('resize', updateRect, { passive: true });
   hero.addEventListener('mousemove', onPointer, { passive: true });
   hero.addEventListener('touchmove', onPointer, { passive: true });
+})();
+
+// Enquiry form: intercept submit, show success message, and reset
+(() => {
+  const form = document.getElementById('enquiry-form');
+  if (!form) return;
+  const success = document.getElementById('enquiry-success');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (success) {
+      success.classList.remove('hidden');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    form.reset();
+  });
 })();
