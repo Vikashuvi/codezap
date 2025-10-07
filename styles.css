@@ -239,3 +239,52 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
   color: #fff;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
+
+/* =============================
+   Timeline line (gray) responsive
+   ============================= */
+.timeline {
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 36px; /* aligns with dot center (mobile) */
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #D1D5DB; /* gray-300 for stronger line */
+  border-radius: 9999px;
+}
+.timeline-item {
+  position: relative;
+  padding-left: 46px; /* accommodate dot on mobile */
+}
+.timeline-item .timeline-dot {
+  position: absolute;
+  left: 5.5px;
+  top: 2px; /* aligns dot with line */
+}
+@media (min-width: 768px) {
+  /* Desktop: stabilize container height and align line with dot center */
+  .timeline {
+    --tl-dot: 32px;  /* matches md:h-8 md:w-8 */
+    --tl-pt: 2px;   /* top padding for breathing space */
+    --tl-line: 4px;  /* desktop line thickness */
+    padding-top: var(--tl-pt);
+    padding-bottom: 16px;
+  }
+  .timeline::before {
+    left: 8px;
+    right: 8px;
+    top: 15px; /* center line on dot */
+    height: var(--tl-line);
+    bottom: auto;
+    width: auto;
+    border-radius: 9999px;
+  }
+  .timeline-item { padding-left: 0; }
+  .timeline-item .timeline-dot {
+    position: static; /* use normal flow for horizontal layout */
+  }
+}
