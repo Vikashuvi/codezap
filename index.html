@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Akira Expanded (CDN). If you have licensed files, replace with self-hosted @font-face. -->
+    <link href="https://fonts.cdnfonts.com/css/akira-expanded" rel="stylesheet" />
 
     <!-- Tailwind via Play CDN for rapid setup and theming -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -89,34 +91,36 @@
 
     <main id="top" class="pt-24">
       <!-- Hero -->
-      <section id="hero" class="relative isolate overflow-hidden min-h-screen flex items-center -mt-24">
-        <!-- Layered visual background -->
-        <div class="absolute inset-0 -z-20">
-          <div class="hero-gradient pointer-events-none absolute inset-0"></div>
-          <div class="hero-grid pointer-events-none absolute inset-0 opacity-40"></div>
-          <div class="hero-noise pointer-events-none absolute inset-0 opacity-[0.06]"></div>
+      <section id="hero" class="relative isolate overflow-hidden min-h-[calc(100svh+10rem)] sm:min-h-[calc(100vh+6rem)] flex items-center -mt-24 rounded-bl-[60px] rounded-br-[60px] shadow-[0_16px_32px_rgba(17,24,39,0.08)]">
+        <div class="absolute inset-0 -z-20 overflow-hidden rounded-bl-[60px] rounded-br-[60px]">
+          <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none">
+            <source src="./assets/hero.mp4" type="video/mp4">
+          </video>
+          <div class="hero-gradient pointer-events-none absolute inset-0 hidden sm:block"></div>
+          <div class="hero-grid pointer-events-none absolute inset-0 hidden sm:block sm:opacity-40"></div>
+          <div class="hero-noise pointer-events-none absolute inset-0 hidden sm:block sm:opacity-[0.06]"></div>
         </div>
 
         <!-- Animated glow blob -->
-        <div class="hero-glow absolute -top-24 -right-24 sm:-top-32 sm:-right-32 h-72 w-72 sm:h-96 sm:w-96 -z-10" data-depth="0.2"></div>
-        <div class="hero-glow hero-glow--secondary absolute -bottom-24 -left-24 sm:-bottom-32 sm:-left-32 h-72 w-72 sm:h-96 sm:w-96 -z-10" data-depth="0.15"></div>
+        <div class="hero-glow absolute -top-24 -right-24 sm:-top-32 sm:-right-32 h-72 w-72 sm:h-96 sm:w-96 -z-10 hidden sm:block" data-depth="0.2"></div>
+        <div class="hero-glow hero-glow--secondary absolute -bottom-24 -left-24 sm:-bottom-32 sm:-left-32 h-72 w-72 sm:h-96 sm:w-96 -z-10 hidden sm:block" data-depth="0.15"></div>
 
         <!-- Floating orbs -->
-        <div class="orb orb--sm absolute top-16 right-10 -z-10" data-depth="0.35"></div>
-        <div class="orb orb--md absolute bottom-10 left-10 -z-10" data-depth="0.25"></div>
+        <div class="orb orb--sm absolute top-16 right-10 -z-10 hidden sm:block" data-depth="0.35"></div>
+        <div class="orb orb--md absolute bottom-10 left-10 -z-10 hidden sm:block" data-depth="0.25"></div>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 w-full">
-          <div class="max-w-4xl mx-auto text-center">
+          <div class="max-w-4xl text-center md:text-left">
             <span class="logo-wrap inline-block">
-              <img src="./assets/codezaplogo.png" alt="CODEZAP25 logo" class="mx-auto h-28 sm:h-32 md:h-40 w-auto object-contain" />
+              <img src="./assets/codezaplogo.png" alt="CODEZAP25 logo" class="h-28 sm:h-32 md:h-40 w-auto object-contain" />
             </span>
-            <h1 class="mt-4 font-display font-semibold tracking-tight text-gray-900 leading-tight text-2xl sm:text-3xl md:text-4xl whitespace-nowrap">
+            <h1 class="mt-4 font-display font-semibold tracking-tight text-white leading-tight text-2xl sm:text-3xl md:text-4xl whitespace-nowrap">
               Build real, fast, and responsibly.
             </h1>
-            <p class="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p class="mt-4 text-base sm:text-lg text-white max-w-2xl">
               Grand Finale at Madras Christian College, Chennai · <span class="date-badge">Oct 30 - 31, 2025</span>
             </p>
-            <div class="mt-8 flex flex-wrap gap-3 justify-center">
+            <div class="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
               <a href="#" id="btn-brief" class="inline-flex items-center rounded-lg bg-brand-gradient px-5 py-3 text-sm font-semibold text-white shadow-soft hover:opacity-90 transition">Event Brief</a>
               <a href="#updates" class="btn-glass inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-gray-900/90">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 6h18" opacity=".5"/><path d="M3 18h18" opacity=".5"/></svg>
@@ -129,8 +133,6 @@
             </div>
           </div>
         </div>
-        <!-- White fade at bottom to blend into page -->
-        <div class="hero-fade absolute inset-x-0 bottom-0 h-24 sm:h-36 pointer-events-none -z-10"></div>
       </section>
 
       <!-- Event Brief Modal -->
@@ -177,51 +179,86 @@
         </div>
       </section>
 
-      <!-- Prize Highlight -->
-      <section id="prize" class="py-10 sm:py-16">
+      <!-- Prize (white theme, external illustration) -->
+      <section id="prize" class="relative isolate overflow-hidden bg-white text-gray-900 min-h-screen py-16 sm:py-24">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="prize-bg ring-1 ring-gray-200 shadow-soft p-6 sm:p-10">
-            <div class="prize-card grid grid-cols-1 md:grid-cols-[auto,1fr] items-center gap-5 sm:gap-8">
-              <div class="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-2xl" style="background: linear-gradient(135deg, #00CC99, #004B8D); color: white; box-shadow: 0 12px 28px rgba(17,24,39,0.16)">
-                <i class="fa-solid fa-trophy text-2xl sm:text-3xl" aria-hidden="true"></i>
-              </div>
-              <div>
-                <h3 class="prize-title text-gray-900">Prize Highlight</h3>
-                <p class="mt-2 text-base sm:text-lg text-gray-800">Grand Prize: 3-day sponsored Singapore educational immersion with client visits.</p>
-              </div>
+          <div class="items-center">
+            <!-- Left: huge light-toned heading + secondary title and paragraph -->
+            <div class="relative">
+              <span class="ghost-heading ak-exp select-none">Prize highlight</span>
+              <h2 class="relative z-10 ak-exp tracking-tight text-4xl sm:text-5xl md:text-6xl text-gray-900 mt-6">
+                Grand Prize
+              </h2>
+              <p class="relative z-10 mt-4 text-base sm:text-lg text-gray-700 max-w-2xl leading-relaxed">
+                3-day sponsored Singapore educational immersion with client visits.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Benefits Grid (2x2) -->
-      <section id="benefits" class="py-10 sm:py-14 bg-gray-50">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Benefits</h2>
-          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
-              <div class="flex items-center gap-4">
-                <i class="fa-solid fa-clock text-brand-secondary text-xl sm:text-2xl shrink-0"></i>
-                <p class="text-sm sm:text-base leading-snug text-gray-800">72-Hour Hackathon Training (access provided to eligible participants)</p>
+      <!-- Benefits (redesigned, full-screen, with decorative elements) -->
+      <section id="benefits" class="relative benefits-bg min-h-screen flex items-center py-16 sm:py-20">
+        <!-- Decorative sparkles -->
+        <div class="sparkle sparkle-tl" aria-hidden="true"></div>
+        <div class="sparkle sparkle-tr" aria-hidden="true"></div>
+        <div class="sparkle sparkle-bl" aria-hidden="true"></div>
+        <div class="sparkle sparkle-br" aria-hidden="true"></div>
+        
+        <!-- Star patterns -->
+        <div class="star-pattern star-1" aria-hidden="true">✦</div>
+        <div class="star-pattern star-2" aria-hidden="true">✦</div>
+        <div class="star-pattern star-3" aria-hidden="true">✦</div>
+        <div class="star-pattern star-4" aria-hidden="true">✦</div>
+        <div class="star-pattern star-5" aria-hidden="true">✦</div>
+        <div class="star-pattern star-6" aria-hidden="true">✦</div>
+        <div class="star-pattern star-7" aria-hidden="true">✦</div>
+        <div class="star-pattern star-8" aria-hidden="true">✦</div>
+        <div class="star-pattern star-9" aria-hidden="true">✦</div>
+        <div class="star-pattern star-10" aria-hidden="true">✦</div>
+        <div class="star-pattern star-11" aria-hidden="true">✦</div>
+        <div class="star-pattern star-12" aria-hidden="true">✦</div>
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+          <div class="relative text-center mb-12">
+            <span class="ghost-heading ghost-xl ak-exp select-none">Benefits</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            <!-- Benefit 1 (positioned lower) -->
+            <div class="text-center mt-0 lg:mt-16">
+              <div class="benefit-icon-box mx-auto mb-5">
+                <i class="fa-solid fa-clock text-2xl"></i>
               </div>
+              <h3 class="font-semibold text-gray-900 mb-2">72-Hour Hackathon Training</h3>
+              <p class="text-sm text-gray-600">access provided to eligible participants</p>
             </div>
-            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
-              <div class="flex items-center gap-4">
-                <i class="fa-solid fa-certificate text-brand-secondary text-xl sm:text-2xl shrink-0"></i>
-                <p class="text-sm sm:text-base leading-snug text-gray-800">Agile Project Management Certificate</p>
+
+            <!-- Benefit 2 -->
+            <div class="text-center">
+              <div class="benefit-icon-box mx-auto mb-5">
+                <i class="fa-solid fa-certificate text-2xl"></i>
               </div>
+              <h3 class="font-semibold text-gray-900 mb-2">Agile Project Management Certificate</h3>
+              <p class="text-sm text-gray-600"> </p>
             </div>
-            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
-              <div class="flex items-center gap-4">
-                <i class="fa-solid fa-wand-magic-sparkles text-brand-secondary text-xl sm:text-2xl shrink-0"></i>
-                <p class="text-sm sm:text-base leading-snug text-gray-800">No-Code / Low-Code Training</p>
+
+            <!-- Benefit 3 -->
+            <div class="text-center">
+              <div class="benefit-icon-box mx-auto mb-5">
+                <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
               </div>
+              <h3 class="font-semibold text-gray-900 mb-2">No-Code / Low-Code Training</h3>
+              <p class="text-sm text-gray-600"> </p>
             </div>
-            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
-              <div class="flex items-center gap-4">
-                <i class="fa-solid fa-robot text-brand-secondary text-xl sm:text-2xl shrink-0"></i>
-                <p class="text-sm sm:text-base leading-snug text-gray-800">Real-world Problem Solving & AI Integration</p>
+
+            <!-- Benefit 4 (positioned lower) -->
+            <div class="text-center mt-0 lg:mt-16">
+              <div class="benefit-icon-box mx-auto mb-5">
+                <i class="fa-solid fa-robot text-2xl"></i>
               </div>
+              <h3 class="font-semibold text-gray-900 mb-2">Real-world Problem Solving & AI Integration</h3>
+              <p class="text-sm text-gray-600"> </p>
             </div>
           </div>
         </div>
