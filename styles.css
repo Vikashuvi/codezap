@@ -1,7 +1,7 @@
 /* Global brand variables */
 :root {
-  --brand-primary: #00CC99;
-  --brand-secondary: #004B8D;
+  --brand-primary: #4A46E3;
+  --brand-secondary: #D25FA3;
 }
 
 /* Base layout helpers */
@@ -20,7 +20,7 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
   left: -120%;
   width: 120%;
   height: 100%;
-  background: linear-gradient(100deg, transparent 20%, rgba(0, 204, 153, 0.28) 45%, rgba(0, 75, 141, 0.28) 55%, transparent 80%);
+  background: linear-gradient(100deg, transparent 20%, rgba(74, 70, 227, 0.28) 45%, rgba(210, 95, 163, 0.28) 55%, transparent 80%);
   transform: skewX(-12deg);
   transition: left 0.6s ease;
   pointer-events: none;
@@ -140,7 +140,7 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
   left: -120%;
   width: 120%;
   height: 100%;
-  background: linear-gradient(100deg, transparent 20%, rgba(0, 204, 153, 0.22) 45%, rgba(0, 75, 141, 0.22) 55%, transparent 80%);
+  background: linear-gradient(100deg, transparent 20%, rgba(74, 70, 227, 0.22) 45%, rgba(210, 95, 163, 0.22) 55%, transparent 80%);
   transform: skewX(-12deg);
   transition: left 0.6s ease;
   pointer-events: none;
@@ -188,8 +188,8 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
   overflow: hidden;
   border-radius: 20px;
   background:
-    radial-gradient(120% 80% at 0% 0%, rgba(0,204,153,0.18), rgba(0,204,153,0) 50%),
-    radial-gradient(120% 80% at 100% 0%, rgba(0,75,141,0.18), rgba(0,75,141,0) 50%),
+    radial-gradient(120% 80% at 0% 0%, rgba(74, 70, 227, 0.18), rgba(74, 70, 227, 0) 50%),
+    radial-gradient(120% 80% at 100% 0%, rgba(210, 95, 163, 0.18), rgba(210, 95, 163, 0) 50%),
     linear-gradient(180deg, #ffffff, #f9fafb);
 }
 .prize-bg::before {
@@ -215,8 +215,8 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(120% 80% at 20% 20%, rgba(0,204,153,0.12), rgba(0,204,153,0) 60%),
-    radial-gradient(100% 60% at 80% 80%, rgba(0,75,141,0.10), rgba(0,75,141,0) 50%),
+    radial-gradient(120% 80% at 20% 20%, rgba(74, 70, 227, 0.12), rgba(74, 70, 227, 0) 60%),
+    radial-gradient(100% 60% at 80% 80%, rgba(210, 95, 163, 0.10), rgba(210, 95, 163, 0) 50%),
     linear-gradient(180deg, #f9fafb, #ffffff);
 }
 .venue-container::before {
