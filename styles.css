@@ -4,6 +4,16 @@
   --brand-secondary: #004B8D;
 }
 
+/* Use Saira font for paragraphs */
+p {
+  font-family: 'Saira', sans-serif;
+}
+
+/* Use Akira Expanded for small headings */
+h3, h4 {
+  font-family: 'Akira Expanded', sans-serif;
+}
+
 /* Desktop padding for all bento cards */
 @media (min-width: 769px) {
   .bento-card { padding: 24px; }
@@ -483,6 +493,7 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
   color: #111827;
   margin: 0 0 4px 0;
   line-height: 1.4;
+  font-family: 'Akira Expanded', sans-serif;
 }
 
 /* Timeline subtitle */

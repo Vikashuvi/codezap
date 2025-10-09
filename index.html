@@ -12,7 +12,7 @@
     <!-- Fonts: Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <!-- Akira Expanded (CDN). If you have licensed files, replace with self-hosted @font-face. -->
     <link href="https://fonts.cdnfonts.com/css/akira-expanded" rel="stylesheet" />
 
@@ -56,14 +56,17 @@
     <header class="fixed top-4 inset-x-0 z-50">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav class="header flex items-center justify-between rounded-full bg-white ring-1 ring-gray-200 shadow-soft px-6 sm:px-8 py-3">
-          <!-- Left: Logo + Badge -->
           <a href="https://descienceosclub.com/" target="_blank" class="flex items-center gap-3">
             <img
               src="./assets/logo.png"
               alt="Descience Open Source Club logo"
               class="h-8 sm:h-10 w-auto object-contain"
             />
-            <span class="ml-1 inline-flex items-center rounded-full bg-brand-secondary/10 px-2 py-0.5 text-xs font-medium text-brand-secondary ring-1 ring-inset ring-brand-secondary/20">CODEZAP25</span>
+            <img
+              src="./assets/codezaplogo.png"
+              alt="CODEZAP25 logo"
+              class="h-8 sm:h-10 w-auto object-contain"
+            />
           </a>
           <!-- Mobile toggle -->
           <button id="nav-toggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-secondary" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
@@ -400,38 +403,31 @@
             <span class="ghost-heading ghost-xl ak-exp select-none">Updates</span>
           </div>
 
-          <!-- Bento grid centered on screen -->
-          <div class="updates-bento-centered">
-            <div class="updates-bento-grid">
-                <!-- Card 1 - Small (1x1) - Top Left -->
-                <article class="bento-card bento-card--small bento-card--pattern-1">
-                  <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
-                  <h3 class="font-semibold text-gray-900 mb-3 text-base">Participant briefing completed</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">Initial orientation and guidelines shared with shortlisted teams.</p>
-                </article>
+          <!-- Vertical card list -->
+          <div class="flex flex-col gap-6 max-w-4xl mx-auto">
+              <article class="bento-card">
+                <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
+                <h3 class="font-semibold text-gray-900 mb-3 text-base">Participant briefing completed</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">Initial orientation and guidelines shared with shortlisted teams.</p>
+              </article>
 
-                <!-- Card 2 - Large (2x2) - Middle Right -->
-                <article class="bento-card bento-card--large bento-card--pattern-2">
-                  <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
-                  <h3 class="font-semibold text-gray-900 mb-3 text-lg">Campus pre-finals week scheduled</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">Internal prep activities aligned across participating institutions with comprehensive training sessions.</p>
-                </article>
+              <article class="bento-card">
+                <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
+                <h3 class="font-semibold text-gray-900 mb-3 text-lg">Campus pre-finals week scheduled</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">Internal prep activities aligned across participating institutions with comprehensive training sessions.</p>
+              </article>
 
-                <!-- Card 3 - Wide (2x1) - Middle -->
-                <article class="bento-card bento-card--wide bento-card--pattern-3">
-                  <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
-                  <h3 class="font-semibold text-gray-900 mb-3 text-lg">Venue confirmations in progress</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">Logistics and room allocations being finalized with the host campus.</p>
-                </article>
+              <article class="bento-card">
+                <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
+                <h3 class="font-semibold text-gray-900 mb-3 text-lg">Venue confirmations in progress</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">Logistics and room allocations being finalized with the host campus.</p>
+              </article>
 
-                <!-- Card 4 - Small (1x1) - Bottom -->
-                <article class="bento-card bento-card--small bento-card--pattern-4">
-                  <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
-                  <h3 class="font-semibold text-gray-900 mb-3 text-base">Judging framework reviewed</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">Evaluation rubrics refined for clarity and consistency.</p>
-                </article>
-              </div>
-            </div>
+              <article class="bento-card">
+                <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
+                <h3 class="font-semibold text-gray-900 mb-3 text-base">Judging framework reviewed</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">Evaluation rubrics refined for clarity and consistency.</p>
+              </article>
           </div>
         </div>
       </section>
