@@ -290,3 +290,34 @@ if (navToggle && mobileMenu) {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !successModal.classList.contains('hidden')) close(); });
   }
 })();
+
+// ScrollReveal effects for sections
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || typeof ScrollReveal === 'undefined') return;
+
+  const sr = ScrollReveal({
+    origin: 'bottom',
+    distance: '60px',
+    duration: 1000,
+    delay: 200,
+    reset: false
+  });
+
+  // Hero section reveals on load
+  sr.reveal('.logo-wrap', { origin: 'top', delay: 300 });
+  sr.reveal('#hero h1', { origin: 'left', delay: 500 });
+  sr.reveal('#hero p', { origin: 'right', delay: 700 });
+  sr.reveal('#hero .flex.gap-3', { origin: 'bottom', delay: 900 });
+
+  // Reveal sections sequentially
+  sr.reveal('#stats', { delay: 100 });
+  sr.reveal('#prize', { delay: 200 });
+  sr.reveal('#benefits', { delay: 300 });
+  sr.reveal('#timeline', { delay: 400 });
+  sr.reveal('#updates', { delay: 500 });
+  sr.reveal('#venue-partner', { delay: 600 });
+  sr.reveal('#members', { delay: 700 });
+  sr.reveal('#leaderboard', { delay: 800 });
+  sr.reveal('#enquiry', { delay: 900 });
+})();
