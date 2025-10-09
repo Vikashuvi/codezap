@@ -4,6 +4,11 @@
   --brand-secondary: #004B8D;
 }
 
+/* Desktop padding for all bento cards */
+@media (min-width: 769px) {
+  .bento-card { padding: 24px; }
+}
+
 /* Larger variant when you need an even bigger background word */
 .ghost-xl {
   font-size: clamp(72px, 18vw, 220px);
@@ -279,52 +284,420 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
 }
 
 /* =============================
-   Timeline line (gray) responsive
+   Timeline Modern Design
    ============================= */
-.timeline {
+/* Vertical heading inline (no absolute positioning) */
+.timeline-vertical-heading-inline {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: #111827;
+  opacity: 0.15;
+  user-select: none;
+  flex-shrink: 0;
+  margin-right: 0;
+}
+
+/* Inline timeline container */
+.timeline-modern-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Modern timeline container */
+.timeline-modern {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Timeline event wrapper */
+.timeline-event {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding-bottom: 24px;
+}
+
+.timeline-event--last {
+  padding-bottom: 0;
+}
+
+/* Connector: indicator + line */
+.timeline-connector {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Timeline indicator (circle with icon) */
+.timeline-indicator {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 14px;
+  transition: all 200ms ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Completed state - brand primary (teal) */
+.timeline-indicator--completed {
+  background: linear-gradient(135deg, #00CC99, #00B38A);
+  color: white;
+}
+
+/* Ongoing state - amber */
+.timeline-indicator--ongoing {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: white;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Pending state - gray */
+.timeline-indicator--pending {
+  background: #E5E7EB;
+  color: #9CA3AF;
+  font-size: 8px;
+}
+
+/* Connecting line */
+.timeline-line {
+  width: 3px;
+  flex: 1;
+  background: linear-gradient(180deg, #D1D5DB 0%, #E5E7EB 100%);
+  border-radius: 9999px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  min-height: 40px;
+}
+
+/* Hide line on last item */
+.timeline-event--last .timeline-line {
+  display: none;
+}
+
+/* Timeline content */
+.timeline-content {
+  flex: 1;
+  padding-top: 4px;
   position: relative;
 }
-.timeline::before {
+
+/* Timeline card - now a shade with line */
+.timeline-card {
+  position: relative;
+  padding: 20px 24px 20px 40px;
+  border-radius: 8px;
+  transition: all 200ms ease;
+  overflow: hidden;
+}
+
+/* Left line and fade background */
+.timeline-card::before {
   content: "";
   position: absolute;
-  left: 36px; /* aligns with dot center (mobile) */
+  left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background: #D1D5DB; /* gray-300 for stronger line */
-  border-radius: 9999px;
+  width: 4px;
+  background: linear-gradient(180deg, #00CC99 0%, #00B38A 100%);
+  border-radius: 2px 0 0 2px;
 }
-.timeline-item {
-  position: relative;
-  padding-left: 46px; /* accommodate dot on mobile */
-}
-.timeline-item .timeline-dot {
+
+.timeline-card::after {
+  content: "";
   position: absolute;
-  left: 5.5px;
-  top: 2px; /* aligns dot with line */
+  left: 4px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(0, 204, 153, 0.08) 0%, rgba(0, 204, 153, 0.04) 30%, rgba(0, 204, 153, 0.01) 60%, transparent 100%);
+  border-radius: 0 8px 8px 0;
+  pointer-events: none;
 }
-@media (min-width: 768px) {
-  /* Desktop: stabilize container height and align line with dot center */
-  .timeline {
-    --tl-dot: 32px;  /* matches md:h-8 md:w-8 */
-    --tl-pt: 2px;   /* top padding for breathing space */
-    --tl-line: 4px;  /* desktop line thickness */
-    padding-top: var(--tl-pt);
-    padding-bottom: 16px;
+
+.timeline-card:hover {
+  transform: translateX(4px);
+}
+
+.timeline-card:hover::before {
+  width: 6px;
+  box-shadow: 0 0 12px rgba(0, 204, 153, 0.3);
+}
+
+.timeline-card:hover::after {
+  opacity: 0.9;
+}
+
+/* Status-specific colors */
+.timeline-content--completed .timeline-card::before {
+  background: linear-gradient(180deg, #00CC99 0%, #00B38A 100%);
+}
+
+.timeline-content--completed .timeline-card::after {
+  background: linear-gradient(90deg, rgba(0, 204, 153, 0.08) 0%, rgba(0, 204, 153, 0.04) 30%, rgba(0, 204, 153, 0.01) 60%, transparent 100%);
+}
+
+.timeline-content--ongoing .timeline-card::before {
+  background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+}
+
+.timeline-content--ongoing .timeline-card::after {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.04) 30%, rgba(245, 158, 11, 0.01) 60%, transparent 100%);
+}
+
+.timeline-content--ongoing .timeline-card:hover::before {
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+}
+
+.timeline-content--pending .timeline-card::before {
+  background: linear-gradient(180deg, #9CA3AF 0%, #6B7280 100%);
+}
+
+.timeline-content--pending .timeline-card::after {
+  background: linear-gradient(90deg, rgba(156, 163, 175, 0.06) 0%, rgba(156, 163, 175, 0.03) 30%, rgba(156, 163, 175, 0.01) 60%, transparent 100%);
+}
+
+.timeline-content--pending .timeline-card:hover::before {
+  box-shadow: 0 0 12px rgba(156, 163, 175, 0.2);
+}
+
+/* Timeline title */
+.timeline-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+/* Timeline subtitle */
+.timeline-subtitle {
+  font-size: 13px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Pulse animation for ongoing indicator */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3), 0 0 0 0 rgba(245, 158, 11, 0.4);
   }
-  .timeline::before {
-    left: 8px;
-    right: 8px;
-    top: 15px; /* center line on dot */
-    height: var(--tl-line);
-    bottom: auto;
-    width: auto;
-    border-radius: 9999px;
+  50% {
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5), 0 0 0 8px rgba(245, 158, 11, 0);
   }
-  .timeline-item { padding-left: 0; }
-  .timeline-item .timeline-dot {
-    position: static; /* use normal flow for horizontal layout */
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .timeline-indicator {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
   }
+  
+  .timeline-card {
+    padding: 24px 28px 24px 48px;
+  }
+  
+  .timeline-title {
+    font-size: 18px;
+  }
+  
+  .timeline-subtitle {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .timeline-vertical-heading-inline {
+    position: static;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    font-size: clamp(40px, 12vw, 64px);
+    text-align: center;
+    margin-bottom: 16px;
+    margin-right: 0;
+  }
+  
+  .timeline-modern-inline {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-indicator--ongoing {
+    animation: none !important;
+  }
+  .timeline-card:hover {
+    transform: none;
+  }
+}
+
+/* =============================
+   Updates Bento Grid Design
+   ============================= */
+/* Centered bento container */
+.updates-bento-centered {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Bento grid layout - magazine layout with 3 rows */
+.updates-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 4/3;
+}
+
+/* Bento card base styles */
+.bento-card {
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px; /* increased border radius */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 200ms ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px; /* increased base padding */
+  position: relative;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 204, 153, 0.2);
+}
+
+/* Pattern backgrounds for cards */
+.bento-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bento-card--pattern-1::before {
+  background: radial-gradient(circle at 20% 20%, #00CC99 1px, transparent 1px),
+              radial-gradient(circle at 80% 80%, #004B8D 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bento-card--pattern-2::before {
+  background: linear-gradient(45deg, #00CC99 1px, transparent 1px),
+              linear-gradient(-45deg, #00CC99 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.bento-card--pattern-3::before {
+  background: radial-gradient(circle at 30% 70%, #004B8D 1px, transparent 1px),
+              radial-gradient(circle at 70% 30%, #00CC99 1px, transparent 1px);
+  background-size: 15px 15px;
+}
+
+.bento-card--pattern-4::before {
+  background: repeating-conic-gradient(from 0deg at 50% 50%, #00CC99 0deg 10deg, transparent 10deg 20deg),
+              repeating-conic-gradient(from 90deg at 50% 50%, #004B8D 0deg 5deg, transparent 5deg 10deg);
+  background-size: 25px 25px;
+}
+
+/* Make sure content is above patterns */
+.bento-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Large card - spans 2x2 */
+.bento-card--large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Small card - spans 1x1 */
+.bento-card--small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Wide card - spans 2x1 */
+.bento-card--wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* Responsive adjustments for bento grid */
+@media (max-width: 768px) {
+  .updates-bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    aspect-ratio: unset;
+    max-width: 100%;
+    gap: 16px;
+  }
+
+  .bento-card--large,
+  .bento-card--small,
+  .bento-card--wide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .updates-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    aspect-ratio: 2/3;
+  }
+
+  .bento-card--large {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .bento-card--small {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bento-card--wide {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+/* Desktop padding for all bento cards */
+@media (min-width: 769px) {
+  .bento-card { padding: 28px; } /* Increased desktop padding */
 }
 
 /* =============================
@@ -334,8 +707,6 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
   background: linear-gradient(180deg, rgba(0,204,153,0.1), rgba(0,204,153,0.05));
   border-radius: 72px;
 }
-
-/* Icon box container (secondary bg, white icons) */
 .benefit-icon-box {
   display: inline-flex;
   align-items: center;

@@ -57,7 +57,7 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav class="header flex items-center justify-between rounded-full bg-white ring-1 ring-gray-200 shadow-soft px-6 sm:px-8 py-3">
           <!-- Left: Logo + Badge -->
-          <a href="https://descienceosclub.com/" class="flex items-center gap-3">
+          <a href="https://descienceosclub.com/" target="_blank" class="flex items-center gap-3">
             <img
               src="./assets/logo.png"
               alt="Descience Open Source Club logo"
@@ -265,70 +265,173 @@
       </section>
 
       <!-- Timeline (Generic, no internals) -->
-      <section id="timeline" class="py-10 sm:py-14">
+      <section id="timeline" class="relative py-16 sm:py-24 bg-white overflow-hidden">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Timeline</h2>
-          <p class="text-center text-xs sm:text-sm text-gray-500 mt-1">Detailed schedules are shared directly with participants.</p>
+          <div class="flex items-start justify-center gap-0">
+            <!-- Huge vertical heading -->
+            <h2 class="timeline-vertical-heading-inline ak-exp text-gray-900">TIMELINE</h2>
+            
+            <!-- Timeline events -->
+            <div class="timeline-modern-inline">
+                <!-- Timeline Item 1 - Completed -->
+                <div class="timeline-event" data-status="completed">
+                  <div class="timeline-connector">
+                    <div class="timeline-indicator timeline-indicator--completed">
+                      <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                  </div>
+                  <div class="timeline-content timeline-content--completed">
+                    <div class="timeline-card">
+                      <h3 class="timeline-title">Intake Process</h3>
+                      <p class="timeline-subtitle">Detailed schedules shared with participants</p>
+                    </div>
+                  </div>
+                </div>
 
-          <!-- Responsive: vertical on mobile, horizontal on md+ -->
-          <div class="mt-8 timeline timeline-container ring-1 ring-gray-200 shadow-soft rounded-2xl bg-white p-5 sm:p-8 md:ring-0 md:shadow-none md:bg-transparent md:p-0 md:rounded-none">
-            <ol class="flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-6">
-              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
-                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-emerald-500 text-white text-xs md:text-base"><i class="fa-solid fa-check"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Intake Process</span>
-              </li>
-              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
-                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-emerald-500 text-white text-xs md:text-base"><i class="fa-solid fa-check"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Team Formation</span>
-              </li>
-              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
-                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-emerald-500 text-white text-xs md:text-base"><i class="fa-solid fa-check"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Preparation Stage</span>
-              </li>
-              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
-                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-amber-400 text-white text-xs md:text-base"><i class="fa-solid fa-minus"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Pre-Finals</span>
-              </li>
-              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
-                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Product Preparation</span>
-              </li>
-              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
-                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Grand Finale</span>
-              </li>
-            </ol>
+                <!-- Timeline Item 2 - Completed -->
+                <div class="timeline-event" data-status="completed">
+                  <div class="timeline-connector">
+                    <div class="timeline-indicator timeline-indicator--completed">
+                      <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                  </div>
+                  <div class="timeline-content timeline-content--completed">
+                    <div class="timeline-card">
+                      <h3 class="timeline-title">Team Formation</h3>
+                      <p class="timeline-subtitle">Teams balanced via OriginBI (DISC)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timeline Item 3 - Completed -->
+                <div class="timeline-event" data-status="completed">
+                  <div class="timeline-connector">
+                    <div class="timeline-indicator timeline-indicator--completed">
+                      <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                  </div>
+                  <div class="timeline-content timeline-content--completed">
+                    <div class="timeline-card">
+                      <h3 class="timeline-title">Preparation Stage</h3>
+                      <p class="timeline-subtitle">Training and skill development phase</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timeline Item 4 - Ongoing -->
+                <div class="timeline-event" data-status="ongoing">
+                  <div class="timeline-connector">
+                    <div class="timeline-indicator timeline-indicator--ongoing">
+                      <i class="fa-solid fa-spinner"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                  </div>
+                  <div class="timeline-content timeline-content--ongoing">
+                    <div class="timeline-card">
+                      <h3 class="timeline-title">Pre-Finals</h3>
+                      <p class="timeline-subtitle">Campus activities in progress</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timeline Item 5 - Pending -->
+                <div class="timeline-event" data-status="pending">
+                  <div class="timeline-connector">
+                    <div class="timeline-indicator timeline-indicator--pending">
+                      <i class="fa-solid fa-circle"></i>
+                    </div>
+                    <div class="timeline-line"></div>
+                  </div>
+                  <div class="timeline-content timeline-content--pending">
+                    <div class="timeline-card">
+                      <h3 class="timeline-title">Product Preparation</h3>
+                      <p class="timeline-subtitle">Final project development</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timeline Item 6 - Pending (Last) -->
+                <div class="timeline-event timeline-event--last" data-status="pending">
+                  <div class="timeline-connector">
+                    <div class="timeline-indicator timeline-indicator--pending">
+                      <i class="fa-solid fa-circle"></i>
+                    </div>
+                  </div>
+                  <div class="timeline-content timeline-content--pending">
+                    <div class="timeline-card">
+                      <h3 class="timeline-title">Grand Finale</h3>
+                      <p class="timeline-subtitle">Oct 30-31, 2025 · MCC Chennai</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Placeholders for upcoming sections -->
-      <section id="updates" class="py-12 sm:py-16 scroll-mt-28 sm:scroll-mt-32">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Updates / Announcements</h2>
-          <p class="text-center text-sm text-gray-500 mt-1">Neutral, high-level announcements. No links or internal dates.</p>
+      <section id="updates" class="relative benefits-bg py-12 sm:py-16">
+        <!-- Decorative sparkles -->
+        <div class="sparkle sparkle-tl" aria-hidden="true"></div>
+        <div class="sparkle sparkle-tr" aria-hidden="true"></div>
+        <div class="sparkle sparkle-bl" aria-hidden="true"></div>
+        <div class="sparkle sparkle-br" aria-hidden="true"></div>
+        
+        <!-- Star patterns -->
+        <div class="star-pattern star-1" aria-hidden="true">✦</div>
+        <div class="star-pattern star-2" aria-hidden="true">✦</div>
+        <div class="star-pattern star-3" aria-hidden="true">✦</div>
+        <div class="star-pattern star-4" aria-hidden="true">✦</div>
+        <div class="star-pattern star-5" aria-hidden="true">✦</div>
+        <div class="star-pattern star-6" aria-hidden="true">✦</div>
+        <div class="star-pattern star-7" aria-hidden="true">✦</div>
+        <div class="star-pattern star-8" aria-hidden="true">✦</div>
+        <div class="star-pattern star-9" aria-hidden="true">✦</div>
+        <div class="star-pattern star-10" aria-hidden="true">✦</div>
+        <div class="star-pattern star-11" aria-hidden="true">✦</div>
+        <div class="star-pattern star-12" aria-hidden="true">✦</div>
 
-          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
-              <div class="text-xs text-gray-500">Oct 2025</div>
-              <h3 class="mt-1 font-medium text-gray-900">Participant briefing completed</h3>
-              <p class="mt-1 text-sm text-gray-700">Initial orientation and guidelines shared with shortlisted teams.</p>
-            </article>
-            <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
-              <div class="text-xs text-gray-500">Oct 2025</div>
-              <h3 class="mt-1 font-medium text-gray-900">Campus pre-finals week scheduled</h3>
-              <p class="mt-1 text-sm text-gray-700">Internal prep activities aligned across participating institutions.</p>
-            </article>
-            <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
-              <div class="text-xs text-gray-500">Oct 2025</div>
-              <h3 class="mt-1 font-medium text-gray-900">Venue confirmations in progress</h3>
-              <p class="mt-1 text-sm text-gray-700">Logistics and room allocations being finalized with the host campus.</p>
-            </article>
-            <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
-              <div class="text-xs text-gray-500">Oct 2025</div>
-              <h3 class="mt-1 font-medium text-gray-900">Judging framework reviewed</h3>
-              <p class="mt-1 text-sm text-gray-700">Evaluation rubrics refined for clarity and consistency across tracks.</p>
-            </article>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+          <div class="relative text-center mb-12">
+            <span class="ghost-heading ghost-xl ak-exp select-none">Updates</span>
+          </div>
+
+          <!-- Bento grid centered on screen -->
+          <div class="updates-bento-centered">
+            <div class="updates-bento-grid">
+                <!-- Card 1 - Small (1x1) - Top Left -->
+                <article class="bento-card bento-card--small bento-card--pattern-1">
+                  <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
+                  <h3 class="font-semibold text-gray-900 mb-3 text-base">Participant briefing completed</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">Initial orientation and guidelines shared with shortlisted teams.</p>
+                </article>
+
+                <!-- Card 2 - Large (2x2) - Middle Right -->
+                <article class="bento-card bento-card--large bento-card--pattern-2">
+                  <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
+                  <h3 class="font-semibold text-gray-900 mb-3 text-lg">Campus pre-finals week scheduled</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">Internal prep activities aligned across participating institutions with comprehensive training sessions.</p>
+                </article>
+
+                <!-- Card 3 - Wide (2x1) - Middle -->
+                <article class="bento-card bento-card--wide bento-card--pattern-3">
+                  <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
+                  <h3 class="font-semibold text-gray-900 mb-3 text-lg">Venue confirmations in progress</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">Logistics and room allocations being finalized with the host campus.</p>
+                </article>
+
+                <!-- Card 4 - Small (1x1) - Bottom -->
+                <article class="bento-card bento-card--small bento-card--pattern-4">
+                  <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
+                  <h3 class="font-semibold text-gray-900 mb-3 text-base">Judging framework reviewed</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">Evaluation rubrics refined for clarity and consistency.</p>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </section>
