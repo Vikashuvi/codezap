@@ -536,6 +536,11 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
 }
 
 @media (max-width: 1023px) {
+  .flex.items-start.justify-center.gap-0 {
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .timeline-vertical-heading-inline {
     position: static;
     writing-mode: horizontal-tb;
