@@ -55,13 +55,14 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav class="header flex items-center justify-between rounded-full bg-white ring-1 ring-gray-200 shadow-soft px-6 sm:px-8 py-3">
           <!-- Left: Logo + Badge -->
-          <a href="https://descienceosclub.com/" class="flex items-center gap-3">
+          <a href="https://descienceosclub.com/" target="_blank" class="flex items-center gap-3">
             <img
               src="./assets/logo.png"
               alt="Descience Open Source Club logo"
               class="h-8 sm:h-10 w-auto object-contain"
             />
-            <span class="ml-1 inline-flex items-center rounded-full bg-brand-secondary/10 px-2 py-0.5 text-xs font-medium text-brand-secondary ring-1 ring-inset ring-brand-secondary/20">CODEZAP25</span>
+            <span class="text-brand-secondary font-bold text-lg">×</span>
+            <img src="./assets/codezap.png" alt="CODEZAP25 logo" class="h-6 w-auto object-contain" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));" />
           </a>
           <!-- Mobile toggle -->
           <button id="nav-toggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-secondary" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
@@ -152,6 +153,25 @@
           </ul>
           <div class="mt-6 flex justify-end">
             <button id="brief-ok" class="inline-flex items-center rounded-md bg-brand-gradient px-4 py-2 text-sm font-semibold text-white shadow-soft hover:opacity-90">Got it</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success Modal -->
+      <div id="success-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="success-title">
+        <div id="success-backdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-200"></div>
+        <div id="success-panel" class="relative mx-auto mt-24 w-[92%] max-w-lg rounded-2xl bg-white shadow-2xl ring-1 ring-gray-200 p-6 sm:p-8 transition-all duration-200 opacity-0 translate-y-2 sm:translate-y-0 scale-95">
+          <div class="flex items-start justify-between">
+            <h3 id="success-title" class="font-display text-xl sm:text-2xl font-semibold text-gray-900">Enquiry Submitted</h3>
+            <button id="success-close" class="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-md text-gray-500 hover:bg-gray-100" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div class="mt-4 flex items-center gap-3">
+            <p class="text-sm sm:text-base text-gray-800">Thanks! We'll get back to you via email.</p>
+          </div>
+          <div class="mt-6 flex justify-end">
+            <button id="success-ok" class="inline-flex items-center rounded-md bg-brand-gradient px-4 py-2 text-sm font-semibold text-white shadow-soft hover:opacity-90">Got it</button>
           </div>
         </div>
       </div>
@@ -269,9 +289,8 @@
       <section id="updates" class="py-12 sm:py-16 scroll-mt-28 sm:scroll-mt-32">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Updates / Announcements</h2>
-          <p class="text-center text-sm text-gray-500 mt-1">Neutral, high-level announcements. No links or internal dates.</p>
 
-          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div class="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
             <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
               <div class="text-xs text-gray-500">Oct 2025</div>
               <h3 class="mt-1 font-medium text-gray-900">Participant briefing completed</h3>
@@ -303,19 +322,19 @@
 
           <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
-              <span class="font-medium text-gray-900">PERI</span>
+              <img src="./assets/members/PERI.jpg" alt="PERI logo" class="h-12 w-auto object-contain">
             </div>
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
-              <span class="font-medium text-gray-900">SVCET</span>
+              <img src="./assets/members/SVCET logo.jpg" alt="SVCET logo" class="h-12 w-auto object-contain">
             </div>
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
-              <span class="font-medium text-gray-900">NPSBCT</span>
+              <img src="./assets/members/New_prince.png" alt="NPSBCT logo" class="h-12 w-auto object-contain">
             </div>
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
-              <span class="font-medium text-gray-900">KSR</span>
+              <img src="./assets/members/ksr-group-of-instutions.png" alt="KSR logo" class="h-12 w-auto object-contain">
             </div>
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center lg:col-span-1 sm:col-span-1 col-span-2">
-              <span class="font-medium text-gray-900">KIOT</span>
+              <img src="./assets/members/kiot-salem.jpg" alt="KIOT logo" class="h-12 w-auto object-contain">
             </div>
           </div>
 
@@ -338,36 +357,8 @@
                 </tr>
               </thead>
               <tbody id="leaderboard-body" class="divide-y divide-gray-100">
-                <!-- Placeholder rows (dummy data) -->
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">1</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Team Alpha</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">SVCET</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">92</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">2</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Byte Brigade</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">PERI</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">89</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">3</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Kappa Coders</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">KIOT</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">86</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">4</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Delta Devs</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">KSR</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">82</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">5</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Nexus 5</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">NPSBCT</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">78</td>
+                <tr>
+                  <td colspan="4" class="px-4 sm:px-6 py-8 text-center text-sm text-gray-500">Not started yet</td>
                 </tr>
               </tbody>
             </table>
@@ -388,14 +379,14 @@
               </div>
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input id="email" name="email" type="email" required class="mt-1 block w-full rounded-md placeholder:text-gray-400 border-gray-300 ring-1 ring-gray-300 shadow-sm focus:ring-2 focus:ring-brand-secondary focus:border-brand-secondary px-3 py-2" />
+                <input id="email" name="email" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address" required class="mt-1 block w-full rounded-md placeholder:text-gray-400 border-gray-300 ring-1 ring-gray-300 shadow-sm focus:ring-2 focus:ring-brand-secondary focus:border-brand-secondary px-3 py-2" />
               </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile (WhatsApp)</label>
-                <input id="mobile" name="mobile" type="tel" required class="mt-1 block w-full rounded-md placeholder:text-gray-400 border-gray-300 ring-1 ring-gray-300 shadow-sm focus:ring-2 focus:ring-brand-secondary focus:border-brand-secondary px-3 py-2" />
+                <input id="mobile" name="mobile" type="tel" pattern="^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$" title="Please enter a valid Indian mobile number (10 digits, starting with 6-9, or +91 followed by 10 digits)" minlength="10" maxlength="15" required class="mt-1 block w-full rounded-md placeholder:text-gray-400 border-gray-300 ring-1 ring-gray-300 shadow-sm focus:ring-2 focus:ring-brand-secondary focus:border-brand-secondary px-3 py-2" />
               </div>
               <div class="relative">
                 <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
@@ -428,8 +419,6 @@
             <div class="pt-2">
               <button type="submit" class="inline-flex items-center rounded-md bg-brand-gradient px-5 py-3 text-sm font-semibold text-white shadow-soft hover:opacity-90">Send Enquiry</button>
             </div>
-
-            <p id="enquiry-success" class="hidden text-sm text-emerald-600" role="status" aria-live="polite">Thanks! We’ll get back to you via email.</p>
           </form>
         </div>
       </section>
