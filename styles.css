@@ -301,3 +301,19 @@ body { font-feature-settings: "rlig" 1, "calt" 1; }
     position: static; /* use normal flow for horizontal layout */
   }
 }
+
+/* Remove all border-radius */
+* {
+  border-radius: 0 !important;
+}
+
+/* Keep border-radius for timeline */
+.timeline-container {
+  border-radius: 1rem !important;
+}
+.timeline::before {
+  border-radius: 9999px !important;
+}
+.timeline-dot {
+  border-radius: 9999px !important;
+}
