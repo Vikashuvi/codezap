@@ -54,19 +54,15 @@
     <!-- Header / Navigation -->
     <header class="fixed top-4 inset-x-0 z-50">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <nav class="header flex items-center justify-between rounded-full bg-white ring-1 ring-gray-200 shadow-soft px-6 sm:px-8 py-4">
+        <nav class="header flex items-center justify-between bg-white ring-1 ring-gray-200 shadow-soft px-4 sm:px-8 py-3 sm:py-4">
           <!-- Left: Logo + Badge -->
-          <a href="https://descienceosclub.com/" target="_blank" class="flex items-center gap-3">
-            <img
-              src="./assets/logo.png"
-              alt="Descience Open Source Club logo"
-              class="h-6 sm:h-10 w-auto object-contain"
-            />
+          <a href="https://descienceosclub.com/" target="_blank" class="flex items-center gap-3 mobile-nav-logo">
+            <img src="./assets/logo.png" alt="Descience Open Source Club logo" class="h-6 sm:h-10 w-auto object-contain" />
             <span class="text-brand-secondary font-bold text-lg">×</span>
             <img src="./assets/Codezap-n.png" alt="CODEZAP25 logo" class="h-3 sm:h-6 w-auto object-contain" />
           </a>
           <!-- Mobile toggle -->
-          <button id="nav-toggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+          <button id="nav-toggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 mobile-nav-toggle text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
           </button>
           <!-- Right: Anchors (desktop) -->
@@ -79,11 +75,11 @@
         </nav>
         <!-- Mobile menu (collapsible) -->
         <div id="mobile-menu" class="sm:hidden mt-2 hidden">
-          <div class="rounded-2xl bg-white ring-1 ring-gray-200 shadow-soft px-3 py-2">
-            <a href="#updates" class="block px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Live Updates</a>
-            <a href="#members" class="block px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Members</a>
-            <a href="#leaderboard" class="block px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Leaderboard</a>
-            <a href="#enquiry" class="block px-3 py-3 text-sm font-semibold text-white rounded-md bg-brand-gradient hover:opacity-90 mt-1">Enquiry</a>
+          <div class="rounded-2xl bg-white ring-1 ring-gray-200 shadow-soft px-3 py-2 mobile-nav-panel">
+            <a href="#updates" class="mobile-nav-link block text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Live Updates</a>
+            <a href="#members" class="mobile-nav-link block text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Members</a>
+            <a href="#leaderboard" class="mobile-nav-link block text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Leaderboard</a>
+            <a href="#enquiry" class="mobile-nav-link block text-sm font-semibold text-white rounded-md bg-brand-gradient hover:opacity-90 mt-1">Enquiry</a>
           </div>
         </div>
       </div>
@@ -199,8 +195,8 @@
                 <i class="fa-solid fa-trophy text-2xl sm:text-3xl" aria-hidden="true"></i>
               </div>
               <div>
-                <h3 class="prize-title text-gray-900">Prize Highlight</h3>
-                <p class="mt-2 text-base sm:text-lg text-gray-800">Grand Prize: 3-day sponsored Singapore educational immersion with client visits.</p>
+                <h3 class="prize-title text-gray-900">Grand Prize</h3>
+                <p class="mt-2 text-base sm:text-lg text-gray-800">3-day sponsored Singapore educational immersion with client visits.</p>
               </div>
             </div>
           </div>
@@ -251,27 +247,27 @@
             <ol class="flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-6">
               <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
                 <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-emerald-500 text-white text-xs md:text-base"><i class="fa-solid fa-check"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Intake Process</span>
-              </li>
-              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
-                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-emerald-500 text-white text-xs md:text-base"><i class="fa-solid fa-check"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Team Formation</span>
-              </li>
-              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
-                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-emerald-500 text-white text-xs md:text-base"><i class="fa-solid fa-check"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Preparation Stage</span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-900 font-semibold timeline-label timeline-label--complete">Intake Completed</span>
               </li>
               <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
                 <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-amber-400 text-white text-xs md:text-base"><i class="fa-solid fa-minus"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Pre-Finals</span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-900 font-semibold timeline-label timeline-label--progress">Team Formation</span>
               </li>
               <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
                 <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Product Preparation</span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-500 font-medium timeline-label timeline-label--upcoming">Preparation Stage</span>
               </li>
               <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
                 <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
-                <span class="text-base sm:text-lg md:text-xl text-gray-800 font-medium">Grand Finale</span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-500 font-medium timeline-label timeline-label--upcoming">Pre-Finals</span>
+              </li>
+              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
+                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-500 font-medium timeline-label timeline-label--upcoming">Product Preparation</span>
+              </li>
+              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
+                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-500 font-medium timeline-label timeline-label--upcoming">Grand Finale</span>
               </li>
             </ol>
           </div>
@@ -286,22 +282,22 @@
           <div class="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
             <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
               <div class="text-xs text-gray-500">Oct 2025</div>
-              <h3 class="mt-1 font-medium text-gray-900">Participant briefing completed</h3>
+              <h3 class="mt-1 font-semibold text-gray-900">Participant briefing completed</h3>
               <p class="mt-1 text-sm text-gray-700">Initial orientation and guidelines shared with shortlisted teams.</p>
             </article>
             <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
               <div class="text-xs text-gray-500">Oct 2025</div>
-              <h3 class="mt-1 font-medium text-gray-900">Campus pre-finals week scheduled</h3>
+              <h3 class="mt-1 font-semibold text-gray-900">Campus pre-finals week scheduled</h3>
               <p class="mt-1 text-sm text-gray-700">Internal prep activities aligned across participating institutions.</p>
             </article>
             <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
               <div class="text-xs text-gray-500">Oct 2025</div>
-              <h3 class="mt-1 font-medium text-gray-900">Venue Confirmation Completed</h3>
+              <h3 class="mt-1 font-semibold text-gray-900">Venue Confirmation Completed</h3>
               <p class="mt-1 text-sm text-gray-700">Logistics and room allocations have been finalized with the host campus.</p>
             </article>
             <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
               <div class="text-xs text-gray-500">Oct 2025</div>
-              <h3 class="mt-1 font-medium text-gray-900">Judging framework reviewed</h3>
+              <h3 class="mt-1 font-semibold text-gray-900">Judging framework reviewed</h3>
               <p class="mt-1 text-sm text-gray-700">Evaluation rubrics refined for clarity and consistency across tracks.</p>
             </article>
           </div>
@@ -316,7 +312,7 @@
               <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 sm:gap-8 lg:gap-12">
                 <div class="text-center lg:text-left">
                   <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">Venue Partner</h2>
-                  <p class="mt-4 text-lg sm:text-xl text-gray-800">Madras Christian College Autonomous (MCC)</p>
+                  <p class="mt-4 text-lg sm:text-xl text-gray-800 font-semibold">Madras Christian College Autonomous (MCC)</p>
                   <p class="mt-2 text-base sm:text-lg text-gray-600">Location: Tambaram, Chennai, Tamil Nadu</p>
                 </div>
                 <div class="flex justify-center lg:justify-end">
@@ -335,7 +331,7 @@
           <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Members</h2>
           <p class="text-center text-sm text-gray-500 mt-1">Participating Colleges</p>
 
-          <div class="mt-8 grid grid-cols-1 gap-4 sm:gap-6">
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
               <img src="./assets/members/PERI.jpg" alt="PERI logo" class="h-12 w-auto object-contain">
             </div>
@@ -382,7 +378,7 @@
       <section id="enquiry" class="py-12 sm:py-16 bg-gray-50 scroll-mt-28 sm:scroll-mt-32">
         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Enquiry & Contact</h2>
-          <p class="text-center text-sm text-gray-600 mt-2">For colleges, students, or sponsors — send your queries. We will reply by email.</p>
+          <p class="text-center text-sm text-gray-600 mt-2">For colleges, students, or sponsors send your queries. We will reply by email.</p>
 
           <form id="enquiry-form" class="mt-8 space-y-5 rounded-2xl bg-white ring-1 ring-gray-200 shadow-soft p-6 sm:p-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
