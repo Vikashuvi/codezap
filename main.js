@@ -187,18 +187,138 @@ if (navToggle && mobileMenu) {
   hero.addEventListener('touchmove', onPointer, { passive: true });
 })();
 
-// Enquiry form: intercept submit, show success message, and reset
+// Enquiry form: submit to Google Apps Script
 (() => {
   const form = document.getElementById('enquiry-form');
   if (!form) return;
-  const success = document.getElementById('enquiry-success');
-  form.addEventListener('submit', (e) => {
+  const successModal = document.getElementById('success-modal');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (success) {
-      success.classList.remove('hidden');
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    // Disable submit button to prevent double submission
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
     }
-    form.reset();
+    
+    const formData = new FormData(form);
+    const data = {
+      fullName: formData.get('fullName'),
+      email: formData.get('email'),
+      mobile: formData.get('mobile'),
+      role: formData.get('role'),
+      org: formData.get('org'),
+      message: formData.get('message'),
+      sponsorInterest: formData.get('sponsorInterest') === 'on'
+    };
+    
+    console.log('Submitting data:', data);
+    
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzVaeaf3aK_yMzVkWOjS2edtWi7JD8XGsUsM3IIeGDyqWbyoq7A4MWPkU2pOWIP7gt7/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      console.log('Response received');
+      
+      // Show success modal
+      showSuccessModal();
+      form.reset();
+      
+    } catch (error) {
+      console.error('Fetch error:', error);
+      alert('Error submitting form: ' + error.message);
+    } finally {
+      // Re-enable submit button
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Enquiry';
+      }
+    }
   });
+  
+  // Success modal functions
+  function showSuccessModal() {
+    if (!successModal) return;
+    const btnClose = document.getElementById('success-close');
+    const btnOk = document.getElementById('success-ok');
+    const backdrop = document.getElementById('success-backdrop');
+    const panel = document.getElementById('success-panel');
+
+    const open = () => {
+      successModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        backdrop && backdrop.classList.remove('opacity-0');
+        if (panel) {
+          panel.classList.remove('opacity-0', 'translate-y-2', 'scale-95');
+        }
+      });
+    };
+    const close = () => {
+      backdrop && backdrop.classList.add('opacity-0');
+      if (panel) {
+        panel.classList.add('opacity-0', 'translate-y-2', 'scale-95');
+      }
+      const done = () => {
+        successModal.classList.add('hidden');
+        document.body.style.overflow = '';
+        panel && panel.removeEventListener('transitionend', done);
+      };
+      if (panel) {
+        panel.addEventListener('transitionend', done, { once: true });
+      } else {
+        setTimeout(done, 200);
+      }
+    };
+
+    open();
+    btnClose && btnClose.addEventListener('click', close);
+    btnOk && btnOk.addEventListener('click', close);
+    successModal.addEventListener('click', (e) => {
+      if (e.target === successModal || (e.target instanceof Element && e.target.classList.contains('bg-black/40'))) {
+        close();
+      }
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !successModal.classList.contains('hidden')) close(); });
+  }
+})();
+
+// ScrollReveal effects for sections
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || typeof ScrollReveal === 'undefined') return;
+
+  const sr = ScrollReveal({
+    origin: 'bottom',
+    distance: '60px',
+    duration: 1000,
+    delay: 200,
+    reset: false
+  });
+
+  // Hero section reveals on load
+  sr.reveal('.logo-wrap', { origin: 'top', delay: 300 });
+  sr.reveal('#hero h1', { origin: 'left', delay: 500 });
+  sr.reveal('#hero p', { origin: 'right', delay: 700 });
+  sr.reveal('#hero .flex.gap-3', { origin: 'bottom', delay: 900 });
+
+  // Reveal sections sequentially
+  sr.reveal('#stats', { delay: 100 });
+  sr.reveal('#prize', { delay: 200 });
+  sr.reveal('#benefits', { delay: 300 });
+  sr.reveal('#timeline', { delay: 400 });
+  sr.reveal('#updates', { delay: 500 });
+  sr.reveal('#venue-partner', { delay: 600 });
+  sr.reveal('#members', { delay: 700 });
+  sr.reveal('#leaderboard', { delay: 800 });
+  sr.reveal('#enquiry', { delay: 900 });
 })();
 

@@ -12,15 +12,14 @@
     <!-- Fonts: Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <!-- Akira Expanded (CDN). If you have licensed files, replace with self-hosted @font-face. -->
-    <link href="https://fonts.cdnfonts.com/css/akira-expanded" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 
     <!-- Tailwind via Play CDN for rapid setup and theming -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script>
       // Theme tuned to provided colors
-      // primary: #00CC99, secondary: #004B8D
+      // primary: #4A46E3, secondary: #D25FA3
       tailwind.config = {
         theme: {
           extend: {
@@ -30,13 +29,13 @@
             },
             colors: {
               brand: {
-                primary: '#00CC99',   // provided primary
-                secondary: '#004B8D', // provided secondary
+                primary: '#4A46E3',   // provided primary
+                secondary: '#D25FA3', // provided secondary
                 dark: '#111827',
               },
             },
             backgroundImage: {
-              'brand-gradient': 'linear-gradient(135deg, #00CC99 0%, #00B38A 30%, #004B8D 100%)',
+              'brand-gradient': 'linear-gradient(135deg, #4A46E3 0%, #8E52C3 30%, #D25FA3 100%)',
               'blue-indigo': 'linear-gradient(135deg, #2563EB 0%, #4F46E5 50%, #4338CA 100%)',
             },
             boxShadow: {
@@ -47,7 +46,7 @@
       };
     </script>
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="icon" type="image/png" href="./assets/favicon2.png" />
     <!-- Font Awesome for legit icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   </head>
@@ -55,21 +54,15 @@
     <!-- Header / Navigation -->
     <header class="fixed top-4 inset-x-0 z-50">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <nav class="header flex items-center justify-between rounded-full bg-white ring-1 ring-gray-200 shadow-soft px-6 sm:px-8 py-3">
-          <a href="https://descienceosclub.com/" target="_blank" class="flex items-center gap-3">
-            <img
-              src="./assets/logo.png"
-              alt="Descience Open Source Club logo"
-              class="h-8 sm:h-10 w-auto object-contain"
-            />
-            <img
-              src="./assets/codezaplogo.png"
-              alt="CODEZAP25 logo"
-              class="h-8 sm:h-10 w-auto object-contain"
-            />
+        <nav class="header flex items-center justify-between bg-white ring-1 ring-gray-200 shadow-soft px-4 sm:px-8 py-3 sm:py-4">
+          <!-- Left: Logo + Badge -->
+          <a href="https://descienceosclub.com/" target="_blank" class="flex items-center gap-3 mobile-nav-logo">
+            <img src="./assets/logo.png" alt="Descience Open Source Club logo" class="h-6 sm:h-10 w-auto object-contain" />
+            <span class="text-brand-secondary font-bold text-lg">×</span>
+            <img src="./assets/Codezap-n.png" alt="CODEZAP25 logo" class="h-3 sm:h-6 w-auto object-contain" />
           </a>
           <!-- Mobile toggle -->
-          <button id="nav-toggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-secondary" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+          <button id="nav-toggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 mobile-nav-toggle text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-secondary" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
           </button>
           <!-- Right: Anchors (desktop) -->
@@ -82,11 +75,11 @@
         </nav>
         <!-- Mobile menu (collapsible) -->
         <div id="mobile-menu" class="sm:hidden mt-2 hidden">
-          <div class="rounded-2xl bg-white ring-1 ring-gray-200 shadow-soft px-3 py-2">
-            <a href="#updates" class="block px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Live Updates</a>
-            <a href="#members" class="block px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Members</a>
-            <a href="#leaderboard" class="block px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Leaderboard</a>
-            <a href="#enquiry" class="block px-3 py-3 text-sm font-semibold text-white rounded-md bg-brand-gradient hover:opacity-90 mt-1">Enquiry</a>
+          <div class="rounded-2xl bg-white ring-1 ring-gray-200 shadow-soft px-3 py-2 mobile-nav-panel">
+            <a href="#updates" class="mobile-nav-link block text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Live Updates</a>
+            <a href="#members" class="mobile-nav-link block text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Members</a>
+            <a href="#leaderboard" class="mobile-nav-link block text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Leaderboard</a>
+            <a href="#enquiry" class="mobile-nav-link block text-sm font-semibold text-white rounded-md bg-brand-gradient hover:opacity-90 mt-1">Enquiry</a>
           </div>
         </div>
       </div>
@@ -94,36 +87,26 @@
 
     <main id="top" class="pt-24">
       <!-- Hero -->
-      <section id="hero" class="relative isolate overflow-hidden min-h-[calc(100svh+10rem)] sm:min-h-[calc(100vh+6rem)] flex items-center -mt-24 rounded-bl-[60px] rounded-br-[60px] shadow-[0_16px_32px_rgba(17,24,39,0.08)]">
-        <div class="absolute inset-0 -z-20 overflow-hidden rounded-bl-[60px] rounded-br-[60px]">
-          <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none">
-            <source src="./assets/hero.mp4" type="video/mp4">
-          </video>
-          <div class="hero-gradient pointer-events-none absolute inset-0 hidden sm:block"></div>
-          <div class="hero-grid pointer-events-none absolute inset-0 hidden sm:block sm:opacity-40"></div>
-          <div class="hero-noise pointer-events-none absolute inset-0 hidden sm:block sm:opacity-[0.06]"></div>
+      <section id="hero" class="relative isolate overflow-hidden min-h-screen flex items-center -mt-24">
+        <!-- Layered visual background -->
+        <div class="absolute inset-0 -z-20">
+          <div class="hero-gradient pointer-events-none absolute inset-0"></div>
+          <div class="hero-grid pointer-events-none absolute inset-0 opacity-40"></div>
+          <div class="hero-noise pointer-events-none absolute inset-0 opacity-[0.06]"></div>
         </div>
 
-        <!-- Animated glow blob -->
-        <div class="hero-glow absolute -top-24 -right-24 sm:-top-32 sm:-right-32 h-72 w-72 sm:h-96 sm:w-96 -z-10 hidden sm:block" data-depth="0.2"></div>
-        <div class="hero-glow hero-glow--secondary absolute -bottom-24 -left-24 sm:-bottom-32 sm:-left-32 h-72 w-72 sm:h-96 sm:w-96 -z-10 hidden sm:block" data-depth="0.15"></div>
-
-        <!-- Floating orbs -->
-        <div class="orb orb--sm absolute top-16 right-10 -z-10 hidden sm:block" data-depth="0.35"></div>
-        <div class="orb orb--md absolute bottom-10 left-10 -z-10 hidden sm:block" data-depth="0.25"></div>
-
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-22 w-full">
-          <div class="max-w-4xl text-center md:text-left">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 w-full">
+          <div class="max-w-4xl mx-auto text-center">
             <span class="logo-wrap inline-block">
-              <img src="./assets/codezaplogo.png" alt="CODEZAP25 logo" class="h-28 sm:h-32 md:h-40 w-auto object-contain" />
+              <img src="./assets/codezap(OG).png" alt="CODEZAP25 logo" class="mx-auto h-20 sm:h-32 md:h-40 w-auto object-contain" />
             </span>
-            <h1 class="mt-4 font-display font-semibold tracking-tight text-white leading-tight text-2xl sm:text-3xl md:text-4xl whitespace-nowrap">
+            <h1 class="mt-4 font-display font-semibold tracking-tight text-gray-900 leading-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl whitespace-nowrap">
               Build real, fast, and responsibly.
             </h1>
-            <p class="mt-4 text-base sm:text-lg text-white max-w-2xl">
-              Grand Finale at Madras Christian College, Chennai · <span class="date-badge">Oct 30 - 31, 2025</span>
+            <p class="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              Grand Finale at Madras Christian College, Chennai · <span class="font-bold text-[#0f0461]">Oct 30 - 31, 2025</span>
             </p>
-            <div class="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
+            <div class="mt-8 flex flex-wrap gap-3 justify-center">
               <a href="#" id="btn-brief" class="inline-flex items-center rounded-lg bg-brand-gradient px-5 py-3 text-sm font-semibold text-white shadow-soft hover:opacity-90 transition">Event Brief</a>
               <a href="#updates" class="btn-glass inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-gray-900/90">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 6h18" opacity=".5"/><path d="M3 18h18" opacity=".5"/></svg>
@@ -136,6 +119,8 @@
             </div>
           </div>
         </div>
+        <!-- White fade at bottom to blend into page -->
+        <div class="hero-fade absolute inset-x-0 bottom-0 h-24 sm:h-36 pointer-events-none -z-10"></div>
       </section>
 
       <!-- Event Brief Modal -->
@@ -150,13 +135,32 @@
           </div>
           <ul class="mt-4 list-disc pl-5 text-sm sm:text-base text-gray-800 space-y-2">
             <li>Micro-SaaS & responsible AI focus.</li>
-            <li>Team structure balanced via DISC (OriginBI).</li>
+            <li>Team structure balanced.</li>
             <li>Repo hygiene, AI transparency, and fair play are mandatory.</li>
             <li>24-hour finale with on-the-spot problem statements.</li>
             <li>Top team wins a 3-day Singapore educational immersion.</li>
           </ul>
           <div class="mt-6 flex justify-end">
             <button id="brief-ok" class="inline-flex items-center rounded-md bg-brand-gradient px-4 py-2 text-sm font-semibold text-white shadow-soft hover:opacity-90">Got it</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success Modal -->
+      <div id="success-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="success-title">
+        <div id="success-backdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-200"></div>
+        <div id="success-panel" class="relative mx-auto mt-24 w-[92%] max-w-lg rounded-2xl bg-white shadow-2xl ring-1 ring-gray-200 p-6 sm:p-8 transition-all duration-200 opacity-0 translate-y-2 sm:translate-y-0 scale-95">
+          <div class="flex items-start justify-between">
+            <h3 id="success-title" class="font-display text-xl sm:text-2xl font-semibold text-gray-900">Enquiry Submitted</h3>
+            <button id="success-close" class="ml-3 inline-flex h-8 w-8 items-center justify-center rounded-md text-gray-500 hover:bg-gray-100" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div class="mt-4 flex items-center gap-3">
+            <p class="text-sm sm:text-base text-gray-800">Thanks! We'll get back to you via email.</p>
+          </div>
+          <div class="mt-6 flex justify-end">
+            <button id="success-ok" class="inline-flex items-center rounded-md bg-brand-gradient px-4 py-2 text-sm font-semibold text-white shadow-soft hover:opacity-90">Got it</button>
           </div>
         </div>
       </div>
@@ -178,256 +182,146 @@
               <div class="stat-label">Hours of Build</div>
             </div>
           </div>
-          <p class="text-center text-xs sm:text-sm text-gray-500 mt-4 sm:mt-5">Teams of 5 · Balanced via OriginBI (DISC)</p>
+          
         </div>
       </section>
 
-      <!-- Prize (white theme, external illustration) -->
-      <section id="prize" class="relative isolate overflow-hidden bg-white text-gray-900 min-h-screen py-16 sm:py-24">
+      <!-- Prize Highlight -->
+      <section id="prize" class="py-10 sm:py-16">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="items-center">
-            <!-- Left: huge light-toned heading + secondary title and paragraph -->
-            <div class="relative">
-              <span class="ghost-heading ak-exp select-none">Prize highlight</span>
-              <h2 class="relative z-10 ak-exp tracking-tight text-4xl sm:text-5xl md:text-6xl text-gray-900 mt-6">
-                Grand Prize
-              </h2>
-              <p class="relative z-10 mt-4 text-base sm:text-lg text-gray-700 max-w-2xl leading-relaxed">
-                3-day sponsored Singapore educational immersion with client visits.
-              </p>
+          <div class="prize-bg ring-1 ring-gray-200 shadow-soft p-6 sm:p-10">
+            <div class="prize-card grid grid-cols-1 md:grid-cols-[auto,1fr] items-center gap-5 sm:gap-8">
+              <div class="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-2xl" style="background: linear-gradient(135deg, #4A46E3, #D25FA3); color: white; box-shadow: 0 12px 28px rgba(17,24,39,0.16)">
+                <i class="fa-solid fa-trophy text-2xl sm:text-3xl" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h3 class="prize-title text-gray-900">Grand Prize</h3>
+                <p class="mt-2 text-base sm:text-lg text-gray-800">3-day sponsored Singapore educational immersion with client visits.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Benefits (redesigned, full-screen, with decorative elements) -->
-      <section id="benefits" class="relative benefits-bg min-h-screen flex items-center py-16 sm:py-20">
-        <!-- Decorative sparkles -->
-        <div class="sparkle sparkle-tl" aria-hidden="true"></div>
-        <div class="sparkle sparkle-tr" aria-hidden="true"></div>
-        <div class="sparkle sparkle-bl" aria-hidden="true"></div>
-        <div class="sparkle sparkle-br" aria-hidden="true"></div>
-        
-        <!-- Star patterns -->
-        <div class="star-pattern star-1" aria-hidden="true">✦</div>
-        <div class="star-pattern star-2" aria-hidden="true">✦</div>
-        <div class="star-pattern star-3" aria-hidden="true">✦</div>
-        <div class="star-pattern star-4" aria-hidden="true">✦</div>
-        <div class="star-pattern star-5" aria-hidden="true">✦</div>
-        <div class="star-pattern star-6" aria-hidden="true">✦</div>
-        <div class="star-pattern star-7" aria-hidden="true">✦</div>
-        <div class="star-pattern star-8" aria-hidden="true">✦</div>
-        <div class="star-pattern star-9" aria-hidden="true">✦</div>
-        <div class="star-pattern star-10" aria-hidden="true">✦</div>
-        <div class="star-pattern star-11" aria-hidden="true">✦</div>
-        <div class="star-pattern star-12" aria-hidden="true">✦</div>
-
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-          <div class="relative text-center mb-12">
-            <span class="ghost-heading ghost-xl ak-exp select-none">Benefits</span>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-            <!-- Benefit 1 (positioned lower) -->
-            <div class="text-center mt-0 lg:mt-16">
-              <div class="benefit-icon-box mx-auto mb-5">
-                <i class="fa-solid fa-clock text-2xl"></i>
+      <!-- Benefits Grid (2x2) -->
+      <section id="benefits" class="py-10 sm:py-14 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Benefits</h2>
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+              <div class="flex items-center gap-4">
+                <i class="fa-solid fa-clock text-brand-secondary text-xl sm:text-2xl shrink-0"></i>
+                <p class="text-sm sm:text-base leading-snug text-gray-800">72-Hour Hackathon Training (access provided to eligible participants)</p>
               </div>
-              <h3 class="font-semibold text-gray-900 mb-2">72-Hour Hackathon Training</h3>
-              <p class="text-sm text-gray-600">access provided to eligible participants</p>
             </div>
-
-            <!-- Benefit 2 -->
-            <div class="text-center">
-              <div class="benefit-icon-box mx-auto mb-5">
-                <i class="fa-solid fa-certificate text-2xl"></i>
+            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+              <div class="flex items-center gap-4">
+                <i class="fa-solid fa-award text-brand-secondary text-2xl sm:text-3xl shrink-0"></i>
+                <p class="text-sm sm:text-base leading-snug text-gray-800">Agile Project Management Certificate</p>
               </div>
-              <h3 class="font-semibold text-gray-900 mb-2">Agile Project Management Certificate</h3>
-              <p class="text-sm text-gray-600"> </p>
             </div>
-
-            <!-- Benefit 3 -->
-            <div class="text-center">
-              <div class="benefit-icon-box mx-auto mb-5">
-                <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+              <div class="flex items-center gap-4">
+                <i class="fa-solid fa-wand-magic-sparkles text-brand-secondary text-xl sm:text-2xl shrink-0"></i>
+                <p class="text-sm sm:text-base leading-snug text-gray-800">No-Code / Low-Code Training</p>
               </div>
-              <h3 class="font-semibold text-gray-900 mb-2">No-Code / Low-Code Training</h3>
-              <p class="text-sm text-gray-600"> </p>
             </div>
-
-            <!-- Benefit 4 (positioned lower) -->
-            <div class="text-center mt-0 lg:mt-16">
-              <div class="benefit-icon-box mx-auto mb-5">
-                <i class="fa-solid fa-robot text-2xl"></i>
+            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+              <div class="flex items-center gap-4">
+                <i class="fa-solid fa-robot text-brand-secondary text-xl sm:text-2xl shrink-0"></i>
+                <p class="text-sm sm:text-base leading-snug text-gray-800">Real-world Problem Solving & AI Integration</p>
               </div>
-              <h3 class="font-semibold text-gray-900 mb-2">Real-world Problem Solving & AI Integration</h3>
-              <p class="text-sm text-gray-600"> </p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Timeline (Generic, no internals) -->
-      <section id="timeline" class="relative py-16 sm:py-24 bg-white overflow-hidden">
+      <section id="timeline" class="py-10 sm:py-14">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex items-start justify-center gap-0">
-            <!-- Huge vertical heading -->
-            <h2 class="timeline-vertical-heading-inline ak-exp text-gray-900">TIMELINE</h2>
-            
-            <!-- Timeline events -->
-            <div class="timeline-modern-inline">
-                <!-- Timeline Item 1 - Completed -->
-                <div class="timeline-event" data-status="completed">
-                  <div class="timeline-connector">
-                    <div class="timeline-indicator timeline-indicator--completed">
-                      <i class="fa-solid fa-check"></i>
-                    </div>
-                    <div class="timeline-line"></div>
-                  </div>
-                  <div class="timeline-content timeline-content--completed">
-                    <div class="timeline-card">
-                      <h3 class="timeline-title">Intake Process</h3>
-                      <p class="timeline-subtitle">Detailed schedules shared with participants</p>
-                    </div>
-                  </div>
-                </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Timeline</h2>
+          <p class="text-center text-xs sm:text-sm text-gray-500 mt-1">Detailed schedules are shared directly with participants.</p>
 
-                <!-- Timeline Item 2 - Completed -->
-                <div class="timeline-event" data-status="completed">
-                  <div class="timeline-connector">
-                    <div class="timeline-indicator timeline-indicator--completed">
-                      <i class="fa-solid fa-check"></i>
-                    </div>
-                    <div class="timeline-line"></div>
-                  </div>
-                  <div class="timeline-content timeline-content--completed">
-                    <div class="timeline-card">
-                      <h3 class="timeline-title">Team Formation</h3>
-                      <p class="timeline-subtitle">Teams balanced via OriginBI (DISC)</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Timeline Item 3 - Completed -->
-                <div class="timeline-event" data-status="completed">
-                  <div class="timeline-connector">
-                    <div class="timeline-indicator timeline-indicator--completed">
-                      <i class="fa-solid fa-check"></i>
-                    </div>
-                    <div class="timeline-line"></div>
-                  </div>
-                  <div class="timeline-content timeline-content--completed">
-                    <div class="timeline-card">
-                      <h3 class="timeline-title">Preparation Stage</h3>
-                      <p class="timeline-subtitle">Training and skill development phase</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Timeline Item 4 - Ongoing -->
-                <div class="timeline-event" data-status="ongoing">
-                  <div class="timeline-connector">
-                    <div class="timeline-indicator timeline-indicator--ongoing">
-                      <i class="fa-solid fa-spinner"></i>
-                    </div>
-                    <div class="timeline-line"></div>
-                  </div>
-                  <div class="timeline-content timeline-content--ongoing">
-                    <div class="timeline-card">
-                      <h3 class="timeline-title">Pre-Finals</h3>
-                      <p class="timeline-subtitle">Campus activities in progress</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Timeline Item 5 - Pending -->
-                <div class="timeline-event" data-status="pending">
-                  <div class="timeline-connector">
-                    <div class="timeline-indicator timeline-indicator--pending">
-                      <i class="fa-solid fa-circle"></i>
-                    </div>
-                    <div class="timeline-line"></div>
-                  </div>
-                  <div class="timeline-content timeline-content--pending">
-                    <div class="timeline-card">
-                      <h3 class="timeline-title">Product Preparation</h3>
-                      <p class="timeline-subtitle">Final project development</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Timeline Item 6 - Pending (Last) -->
-                <div class="timeline-event timeline-event--last" data-status="pending">
-                  <div class="timeline-connector">
-                    <div class="timeline-indicator timeline-indicator--pending">
-                      <i class="fa-solid fa-circle"></i>
-                    </div>
-                  </div>
-                  <div class="timeline-content timeline-content--pending">
-                    <div class="timeline-card">
-                      <h3 class="timeline-title">Grand Finale</h3>
-                      <p class="timeline-subtitle">Oct 30-31, 2025 · MCC Chennai</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!-- Responsive: vertical on mobile, horizontal on md+ -->
+          <div class="mt-8 timeline timeline-container ring-1 ring-gray-200 shadow-soft rounded-2xl bg-white p-5 sm:p-8 md:ring-0 md:shadow-none md:bg-transparent md:p-0 md:rounded-none">
+            <ol class="flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-6">
+              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
+                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-emerald-500 text-white text-xs md:text-base"><i class="fa-solid fa-check"></i></span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-900 font-semibold timeline-label timeline-label--complete">Intake Completed</span>
+              </li>
+              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
+                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-amber-400 text-white text-xs md:text-base"><i class="fa-solid fa-minus"></i></span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-900 font-semibold timeline-label timeline-label--progress">Team Formation</span>
+              </li>
+              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
+                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-500 font-medium timeline-label timeline-label--upcoming">Preparation Stage</span>
+              </li>
+              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
+                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-500 font-medium timeline-label timeline-label--upcoming">Pre-Finals</span>
+              </li>
+              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
+                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-500 font-medium timeline-label timeline-label--upcoming">Product Preparation</span>
+              </li>
+              <li class="timeline-item flex items-start gap-3 md:flex-col md:items-center md:text-center">
+                <span class="timeline-dot inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-gray-300 text-white text-xs md:text-base"><i class="fa-solid fa-circle"></i></span>
+                <span class="text-base sm:text-lg md:text-xl text-gray-500 font-medium timeline-label timeline-label--upcoming">Grand Finale</span>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
 
       <!-- Placeholders for upcoming sections -->
-      <section id="updates" class="relative benefits-bg py-12 sm:py-16">
-        <!-- Decorative sparkles -->
-        <div class="sparkle sparkle-tl" aria-hidden="true"></div>
-        <div class="sparkle sparkle-tr" aria-hidden="true"></div>
-        <div class="sparkle sparkle-bl" aria-hidden="true"></div>
-        <div class="sparkle sparkle-br" aria-hidden="true"></div>
-        
-        <!-- Star patterns -->
-        <div class="star-pattern star-1" aria-hidden="true">✦</div>
-        <div class="star-pattern star-2" aria-hidden="true">✦</div>
-        <div class="star-pattern star-3" aria-hidden="true">✦</div>
-        <div class="star-pattern star-4" aria-hidden="true">✦</div>
-        <div class="star-pattern star-5" aria-hidden="true">✦</div>
-        <div class="star-pattern star-6" aria-hidden="true">✦</div>
-        <div class="star-pattern star-7" aria-hidden="true">✦</div>
-        <div class="star-pattern star-8" aria-hidden="true">✦</div>
-        <div class="star-pattern star-9" aria-hidden="true">✦</div>
-        <div class="star-pattern star-10" aria-hidden="true">✦</div>
-        <div class="star-pattern star-11" aria-hidden="true">✦</div>
-        <div class="star-pattern star-12" aria-hidden="true">✦</div>
+      <section id="updates" class="py-12 sm:py-16 scroll-mt-28 sm:scroll-mt-32">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Updates / Announcements</h2>
 
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-          <div class="relative text-center mb-12">
-            <span class="ghost-heading ghost-xl ak-exp select-none">Updates</span>
+          <div class="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
+            <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+              <div class="text-xs text-gray-500">Oct 2025</div>
+              <h3 class="mt-1 font-semibold text-gray-900">Participant briefing completed</h3>
+              <p class="mt-1 text-sm text-gray-700">Initial orientation and guidelines shared with shortlisted teams.</p>
+            </article>
+            <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+              <div class="text-xs text-gray-500">Oct 2025</div>
+              <h3 class="mt-1 font-semibold text-gray-900">Campus pre-finals week scheduled</h3>
+              <p class="mt-1 text-sm text-gray-700">Internal prep activities aligned across participating institutions.</p>
+            </article>
+            <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+              <div class="text-xs text-gray-500">Oct 2025</div>
+              <h3 class="mt-1 font-semibold text-gray-900">Venue Confirmation Completed</h3>
+              <p class="mt-1 text-sm text-gray-700">Logistics and room allocations have been finalized with the host campus.</p>
+            </article>
+            <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+              <div class="text-xs text-gray-500">Oct 2025</div>
+              <h3 class="mt-1 font-semibold text-gray-900">Judging framework reviewed</h3>
+              <p class="mt-1 text-sm text-gray-700">Evaluation rubrics refined for clarity and consistency across tracks.</p>
+            </article>
           </div>
+        </div>
+      </section>
 
-          <!-- Vertical card list -->
-          <div class="flex flex-col gap-6 max-w-4xl mx-auto">
-              <article class="bento-card">
-                <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
-                <h3 class="font-semibold text-gray-900 mb-3 text-base">Participant briefing completed</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">Initial orientation and guidelines shared with shortlisted teams.</p>
-              </article>
-
-              <article class="bento-card">
-                <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
-                <h3 class="font-semibold text-gray-900 mb-3 text-lg">Campus pre-finals week scheduled</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">Internal prep activities aligned across participating institutions with comprehensive training sessions.</p>
-              </article>
-
-              <article class="bento-card">
-                <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
-                <h3 class="font-semibold text-gray-900 mb-3 text-lg">Venue confirmations in progress</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">Logistics and room allocations being finalized with the host campus.</p>
-              </article>
-
-              <article class="bento-card">
-                <div class="text-xs text-gray-500 mb-2">Oct 2025</div>
-                <h3 class="font-semibold text-gray-900 mb-3 text-base">Judging framework reviewed</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">Evaluation rubrics refined for clarity and consistency.</p>
-              </article>
+      <!-- Venue partner (Large) -->
+      <section id="venue-partner" class="py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="venue-container rounded-3xl ring-1 ring-gray-200 shadow-soft p-8 sm:p-12 lg:p-16">
+            <div class="mx-auto max-w-5xl">
+              <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 sm:gap-8 lg:gap-12">
+                <div class="text-center lg:text-left">
+                  <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">Venue Partner</h2>
+                  <p class="mt-4 text-lg sm:text-xl text-gray-800 font-semibold">Madras Christian College Autonomous (MCC)</p>
+                  <p class="mt-2 text-base sm:text-lg text-gray-600">Location: Tambaram, Chennai, Tamil Nadu</p>
+                </div>
+                <div class="flex justify-center lg:justify-end">
+                  <div class="bg-brand-gradient ring-1 ring-gray-200 shadow-soft p-6 sm:p-8 rounded-[36px]">
+                    <img src="./assets/members/mcc-logo-icon.jpg" alt="MCC logo" class="h-32 sm:h-40 lg:h-48 xl:h-56 rounded-3xl w-auto object-contain" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -437,25 +331,23 @@
           <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Members</h2>
           <p class="text-center text-sm text-gray-500 mt-1">Participating Colleges</p>
 
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
-              <span class="font-medium text-gray-900">PERI</span>
+              <img src="./assets/members/PERI.jpg" alt="PERI logo" class="h-12 w-auto object-contain">
             </div>
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
-              <span class="font-medium text-gray-900">SVCET</span>
+              <img src="./assets/members/SVCET logo.jpg" alt="SVCET logo" class="h-12 w-auto object-contain">
             </div>
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
-              <span class="font-medium text-gray-900">NPSBCT</span>
+              <img src="./assets/members/New_prince.png" alt="NPSBCT logo" class="h-12 w-auto object-contain">
             </div>
             <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
-              <span class="font-medium text-gray-900">KSR</span>
+              <img src="./assets/members/ksr-group-of-instutions.png" alt="KSR logo" class="h-12 w-auto object-contain">
             </div>
-            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center lg:col-span-1 sm:col-span-1 col-span-2">
-              <span class="font-medium text-gray-900">KIOT</span>
+            <div class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5 flex items-center justify-center text-center">
+              <img src="./assets/members/kiot-salem.jpg" alt="KIOT logo" class="h-12 w-auto object-contain">
             </div>
           </div>
-
-          <p class="mt-4 sm:mt-5 text-center text-xs sm:text-sm text-gray-500">Finalists: 30 | Teams of 5 | Teaming balanced via OriginBI (DISC).</p>
         </div>
       </section>
 
@@ -474,36 +366,8 @@
                 </tr>
               </thead>
               <tbody id="leaderboard-body" class="divide-y divide-gray-100">
-                <!-- Placeholder rows (dummy data) -->
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">1</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Team Alpha</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">SVCET</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">92</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">2</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Byte Brigade</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">PERI</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">89</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">3</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Kappa Coders</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">KIOT</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">86</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">4</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Delta Devs</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">KSR</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">82</td>
-                </tr>
-                <tr class="hover:bg-gray-50">
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900 font-medium">5</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">Nexus 5</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-800">NPSBCT</td>
-                  <td class="px-4 sm:px-6 py-3 text-sm text-gray-900">78</td>
+                <tr>
+                  <td colspan="4" class="px-4 sm:px-6 py-8 text-center text-sm text-gray-500">Not started yet</td>
                 </tr>
               </tbody>
             </table>
@@ -514,7 +378,7 @@
       <section id="enquiry" class="py-12 sm:py-16 bg-gray-50 scroll-mt-28 sm:scroll-mt-32">
         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Enquiry & Contact</h2>
-          <p class="text-center text-sm text-gray-600 mt-2">For colleges, students, or sponsors — send your queries. We will reply by email.</p>
+          <p class="text-center text-sm text-gray-600 mt-2">For colleges, students, or sponsors send your queries. We will reply by email.</p>
 
           <form id="enquiry-form" class="mt-8 space-y-5 rounded-2xl bg-white ring-1 ring-gray-200 shadow-soft p-6 sm:p-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -524,14 +388,14 @@
               </div>
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input id="email" name="email" type="email" required class="mt-1 block w-full rounded-md placeholder:text-gray-400 border-gray-300 ring-1 ring-gray-300 shadow-sm focus:ring-2 focus:ring-brand-secondary focus:border-brand-secondary px-3 py-2" />
+                <input id="email" name="email" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address" required class="mt-1 block w-full rounded-md placeholder:text-gray-400 border-gray-300 ring-1 ring-gray-300 shadow-sm focus:ring-2 focus:ring-brand-secondary focus:border-brand-secondary px-3 py-2" />
               </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile (WhatsApp)</label>
-                <input id="mobile" name="mobile" type="tel" required class="mt-1 block w-full rounded-md placeholder:text-gray-400 border-gray-300 ring-1 ring-gray-300 shadow-sm focus:ring-2 focus:ring-brand-secondary focus:border-brand-secondary px-3 py-2" />
+                <input id="mobile" name="mobile" type="tel" pattern="^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$" title="Please enter a valid Indian mobile number (10 digits, starting with 6-9, or +91 followed by 10 digits)" minlength="10" maxlength="15" required class="mt-1 block w-full rounded-md placeholder:text-gray-400 border-gray-300 ring-1 ring-gray-300 shadow-sm focus:ring-2 focus:ring-brand-secondary focus:border-brand-secondary px-3 py-2" />
               </div>
               <div class="relative">
                 <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
@@ -564,23 +428,22 @@
             <div class="pt-2">
               <button type="submit" class="inline-flex items-center rounded-md bg-brand-gradient px-5 py-3 text-sm font-semibold text-white shadow-soft hover:opacity-90">Send Enquiry</button>
             </div>
-
-            <p id="enquiry-success" class="hidden text-sm text-emerald-600" role="status" aria-live="polite">Thanks! We’ll get back to you via email.</p>
           </form>
         </div>
       </section>
+
     </main>
 
     <footer class="border-t bg-white">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-3">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex flex-col sm:flex-row items-start justify-between gap-3">
           <p class="text-sm text-gray-500">© 2025 Descience Open Source Club · CODEZAP25</p>
           <div class="flex items-center gap-3">
-            <button id="btn-copy" class="inline-flex items-center rounded-md ring-1 ring-inset ring-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50">Copy Page URL</button>
             <a href="mailto:info@descienceosclub.com" class="text-sm text-gray-700 hover:text-brand-secondary">info@descienceosclub.com</a>
+            <button id="btn-copy" class="inline-flex items-center rounded-md ring-1 ring-inset ring-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50"><i class="fa-solid fa-copy"></i></button>
           </div>
         </div>
-        <p class="text-xs text-gray-400 text-center sm:text-left">We do not publish internal schedules or participant data.</p>
+        <p class="text-xs text-gray-400 text-left">We do not publish internal schedules or participant data.</p>
       </div>
     </footer>
 
