@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Akira+Expanded&display=swap"
     rel="stylesheet" />
 
   <!-- Tailwind via Play CDN for rapid setup and theming -->
@@ -346,50 +346,18 @@
     </section>
 
     <!-- Hackathon Completion -->
-    <section id="completion" class="py-16 sm:py-24 bg-white text-gray-900 relative overflow-hidden">
-      <!-- Subtle Pattern Background -->
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute top-10 left-10 w-32 h-32 bg-brand-primary rounded-full blur-xl"></div>
-        <div class="absolute top-20 right-20 w-24 h-24 bg-brand-secondary rounded-full blur-lg"></div>
-        <div class="absolute bottom-20 left-1/4 w-40 h-40 bg-emerald-500 rounded-full blur-2xl"></div>
-        <div class="absolute bottom-10 right-10 w-28 h-28 bg-amber-500 rounded-full blur-xl"></div>
-      </div>
+    <section id="completion" class="py-16 sm:py-24 relative overflow-hidden text-white" style="background-image: url('./assets/mission.jpg'); background-size: cover; background-position: center;">
+      <!-- Theme gradient overlay (further increased opacity) -->
+      <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(74,70,227,0.75), rgba(210,95,163,0.75));"></div>
 
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <div class="inline-block mb-6">
-            <i class="fa-solid fa-crown text-4xl sm:text-5xl text-brand-secondary"></i>
+          <div class="inline-block mb-8">
+            <img src="./assets/codezaplogo.png" alt="CODEZAP25 logo" class="h-16 sm:h-20 md:h-24 w-auto">
           </div>
-          <h2 class="font-display text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-            CODEZAP25
-          </h2>
-          <p class="text-xl sm:text-2xl text-brand-primary font-semibold">
+          <p class="text-4xl sm:text-6xl font-semibold" style="font-family: 'Akira Expanded', sans-serif; -webkit-text-stroke: 2px white; color: transparent;">
             Mission Accomplished
           </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center ring-1 ring-gray-200 shadow-soft rounded-xl p-6 bg-white">
-            <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-emerald-500 mb-4">
-              <i class="fa-solid fa-users text-white text-2xl"></i>
-            </div>
-            <h3 class="font-bold text-lg text-gray-900">50 Champions</h3>
-            <p class="text-gray-600">5 Colleges</p>
-          </div>
-          <div class="text-center ring-1 ring-gray-200 shadow-soft rounded-xl p-6 bg-white">
-            <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-amber-500 mb-4">
-              <i class="fa-solid fa-rocket text-white text-2xl"></i>
-            </div>
-            <h3 class="font-bold text-lg text-gray-900">Innovation</h3>
-            <p class="text-gray-600">Micro-SaaS & AI</p>
-          </div>
-          <div class="text-center ring-1 ring-gray-200 shadow-soft rounded-xl p-6 bg-white">
-            <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-blue-500 mb-4">
-              <i class="fa-solid fa-plane text-white text-2xl"></i>
-            </div>
-            <h3 class="font-bold text-lg text-gray-900">Singapore</h3>
-            <p class="text-gray-600">3-Day Immersion</p>
-          </div>
         </div>
       </div>
     </section>
@@ -448,6 +416,22 @@
           Announcements</h2>
 
         <div class="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
+          <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+            <div class="flex items-center justify-between text-xs text-gray-500">
+              <span>31 Oct 2025</span>
+              <span class="inline-flex items-center rounded-full bg-brand-secondary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">New</span>
+            </div>
+            <h3 class="mt-1 font-semibold text-gray-900">Product Pitching</h3>
+            <p class="mt-1 text-sm text-gray-700">Finalists showcased their Micro‑SaaS builds with live demos, market fit, and responsible AI practices.</p>
+          </article>
+          <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
+            <div class="flex items-center justify-between text-xs text-gray-500">
+              <span>31 Oct 2025</span>
+              <span class="inline-flex items-center rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">Winner</span>
+            </div>
+            <h3 class="mt-1 font-semibold text-gray-900">Winning Team Announcement</h3>
+            <p class="mt-1 text-sm text-gray-700">Top team selected for innovation, execution, and impact. Singapore immersion awaits!</p>
+          </article>
           <article class="rounded-xl bg-white ring-1 ring-gray-200 shadow-soft p-5">
             <div class="text-xs text-gray-500">01 - 05 Oct 2025</div>
             <h3 class="mt-1 font-semibold text-gray-900">Participant briefing completed</h3>
