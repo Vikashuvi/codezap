@@ -402,26 +402,40 @@
           Social embeds require loading this page over http(s). Open with a local server or deploy to view the previews.
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-white ring-1 ring-gray-200 shadow-soft rounded-xl p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          <div class="bg-white ring-1 ring-gray-200 shadow-soft rounded-xl p-6 flex flex-col gap-4 h-full">
             <h3 class="font-semibold text-lg text-gray-900 mb-4 flex items-center gap-2">
               <i class="fa-brands fa-linkedin text-blue-600"></i>
               LinkedIn
             </h3>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7391844397702631424" height="400" width="100%" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+            <div class="flex-1">
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7391844397702631424" height="680" width="100%" frameborder="0" allowfullscreen loading="lazy" title="Embedded LinkedIn post" class="w-full rounded-lg"></iframe>
+            </div>
+            <div class="pt-1">
+              <a href="https://www.linkedin.com/company/descience-open-source-club/" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 rounded-md bg-brand-gradient px-4 py-2 text-sm font-semibold text-white shadow-soft hover:opacity-90">
+                <i class="fa-brands fa-linkedin"></i>
+                Follow on LinkedIn
+              </a>
+            </div>
           </div>
 
-          <div class="bg-white ring-1 ring-gray-200 shadow-soft rounded-xl p-6">
+          <div class="bg-white ring-1 ring-gray-200 shadow-soft rounded-xl p-6 flex flex-col gap-4">
             <h3 class="font-semibold text-lg text-gray-900 mb-4 flex items-center gap-2">
               <i class="fa-brands fa-instagram text-pink-500"></i>
               Instagram
             </h3>
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQjP0BRDQOo/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="max-width:540px; width:100%;">
-              <div style="padding:16px;">
-                <a href="https://www.instagram.com/p/DQjP0BRDQOo/?utm_source=ig_embed&utm_campaign=loading" style="padding:8px; color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">View this post on Instagram</a>
-              </div>
-            </blockquote>
+            <div class="rounded-lg overflow-hidden flex-1">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQjP0BRDQOo/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="width:100%;"></blockquote>
+            </div>
             <script async src="https://www.instagram.com/embed.js"></script>
+            <div class="pt-1">
+              <a href="https://www.instagram.com/descienceopensourceclub/" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 rounded-md bg-brand-gradient px-4 py-2 text-sm font-semibold text-white shadow-soft hover:opacity-90">
+                <i class="fa-brands fa-instagram"></i>
+                Follow on Instagram
+              </a>
+            </div>
           </div>
         </div>
       </div>
