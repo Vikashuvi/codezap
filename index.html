@@ -23,6 +23,41 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Confetti on page load - blasting from left and right with more particles
+    window.addEventListener('load', () => {
+      const count = 100;
+      const defaults = {
+        particleCount: count,
+        spread: 70,
+        origin: { y: 0.6 }
+      };
+
+      // Left side burst
+      confetti({
+        ...defaults,
+        angle: 60,
+        origin: { x: 0, y: 0.5 }
+      });
+
+      // Right side burst
+      confetti({
+        ...defaults,
+        angle: 120,
+        origin: { x: 1, y: 0.5 }
+      });
+
+      // Additional center burst for more sparkle
+      setTimeout(() => {
+        confetti({
+          ...defaults,
+          particleCount: count / 2,
+          origin: { x: 0.5, y: 0.3 }
+        });
+      }, 500);
+    });
+  </script>
   <script>
     // Theme tuned to provided colors
     // primary: #4A46E3, secondary: #D25FA3
@@ -55,10 +90,35 @@
   <link rel="icon" type="image/png" href="./assets/favicon2.png" />
   <!-- Font Awesome for legit icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    .sparkle-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+        radial-gradient(rgba(210,95,163,0.10) 1px, transparent 1px);
+      background-size: 36px 36px, 64px 64px;
+      background-position: 0 0, 18px 18px;
+      animation: sparkleShift 6s linear infinite;
+    }
+    @keyframes sparkleShift {
+      0% { background-position: 0 0, 18px 18px; }
+      100% { background-position: 36px 36px, 54px 54px; }
+    }
+    /* Highlights carousel */
+    #highlights .carousel { position: relative; }
+    #highlights .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 800ms ease; }
+    #highlights .slide.active { opacity: 1; }
+  </style>
+
 </head>
 
-<body class="min-h-full bg-white text-gray-900">
-  <!-- Header / Navigation -->
+  <body class="min-h-full bg-white text-gray-900">
+    <div class="sparkle-overlay"></div>
+    <!-- Header / Navigation -->
   <header class="fixed top-4 inset-x-0 z-50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <nav
@@ -105,40 +165,38 @@
   <main id="top" class="pt-24">
     <!-- Hero -->
     <section id="hero" class="relative isolate overflow-hidden min-h-screen flex items-center -mt-24">
-      <!-- Layered visual background -->
-      <div class="absolute inset-0 -z-20">
-        <div class="hero-gradient pointer-events-none absolute inset-0"></div>
-        <div class="hero-grid pointer-events-none absolute inset-0 opacity-40"></div>
-        <div class="hero-noise pointer-events-none absolute inset-0 opacity-[0.06]"></div>
+      <!-- Mission background -->
+      <div class="absolute inset-0 -z-20" style="background-image: url('./assets/mission.jpg'); background-size: cover; background-position: center;">
+        <!-- Theme gradient overlay -->
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(74,70,227,0.75), rgba(210,95,163,0.75));"></div>
       </div>
 
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 w-full">
         <div class="max-w-4xl mx-auto text-center">
           <span class="logo-wrap inline-block">
-            <img src="./assets/Codezap(OG).png" alt="CODEZAP25 logo"
-              class="mx-auto h-20 sm:h-32 md:h-40 w-auto object-contain" />
+            <img src="./assets/codezaplogo.png" alt="CODEZAP25 logo"
+              class="mx-auto h-16 sm:h-20 md:h-24 w-auto object-contain" />
           </span>
-          <h1
-            class="mt-4 font-display font-semibold tracking-tight text-gray-900 leading-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl whitespace-nowrap">
-            Build real, fast, and responsibly.
-          </h1>
-          <p class="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            Grand Finale at Madras Christian College, Chennai · <span class="font-bold text-[#0f0461]">Oct 30 - 31,
-              2025</span>
+          <div class="mt-8">
+            <p class="text-4xl sm:text-6xl font-semibold" style="font-family: 'Akira Expanded', sans-serif; -webkit-text-stroke: 2px white; color: transparent;">
+              Mission Accomplished
+            </p>
+          </div>
+          <p class="mt-6 text-lg sm:text-xl text-white/90 max-w-2xl mx-auto">
+            CODEZAP25 has successfully concluded with groundbreaking innovations and remarkable achievements.
           </p>
           <div class="mt-8 flex flex-wrap gap-3 justify-center">
-            <a href="#" id="btn-brief"
-              class="inline-flex items-center rounded-lg bg-brand-gradient px-5 py-3 text-sm font-semibold text-white shadow-soft hover:opacity-90 transition">Event
-              Brief</a>
             <a href="#updates"
-              class="btn-glass inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-gray-900/90">
+              class="inline-flex items-center rounded-lg bg-brand-gradient px-5 py-3 text-sm font-semibold text-white shadow-soft hover:opacity-90 transition">Announcements</a>
+            <a href="#social"
+              class="btn-glass inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-white/90">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12h18" />
-                <path d="M3 6h18" opacity=".5" />
-                <path d="M3 18h18" opacity=".5" />
+                <path d="M8 21V10" />
+                <path d="M16 21V3" />
+                <path d="M12 21v-6" />
               </svg>
-              Live Updates
+              Social Highlights
             </a>
           </div>
         </div>
@@ -345,23 +403,6 @@
       </div>
     </section>
 
-    <!-- Hackathon Completion -->
-    <section id="completion" class="py-16 sm:py-24 relative overflow-hidden text-white" style="background-image: url('./assets/mission.jpg'); background-size: cover; background-position: center;">
-      <!-- Theme gradient overlay (further increased opacity) -->
-      <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(74,70,227,0.75), rgba(210,95,163,0.75));"></div>
-
-      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <div class="inline-block mb-8">
-            <img src="./assets/codezaplogo.png" alt="CODEZAP25 logo" class="h-16 sm:h-20 md:h-24 w-auto">
-          </div>
-          <p class="text-4xl sm:text-6xl font-semibold" style="font-family: 'Akira Expanded', sans-serif; -webkit-text-stroke: 2px white; color: transparent;">
-            Mission Accomplished
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- Social Highlights -->
     <section id="social" class="py-12 sm:py-16 bg-gray-50">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -408,6 +449,26 @@
         </div>
       </div>
     </section>
+
+    <!-- Highlights (Auto Carousel)
+    <section id="highlights" class="py-12 sm:py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-center">Highlights</h2>
+        <p class="text-center text-xs sm:text-sm text-gray-500 mt-1">Glimpses from the grand finale</p>
+
+        <div class="mt-8 rounded-2xl overflow-hidden ring-1 ring-gray-200 shadow-soft">
+          <div class="relative aspect-[16/9] bg-black">
+            <div class="carousel h-full w-full">
+              <img src="./assets/college/1.jpg" alt="Highlight 1" class="slide active h-full w-full object-cover" />
+              <img src="./assets/college/2.jpg" alt="Highlight 2" class="slide h-full w-full object-cover" />
+              <img src="./assets/college/3.jpg" alt="Highlight 3" class="slide h-full w-full object-cover" />
+              <img src="./assets/college/4.jpg" alt="Highlight 4" class="slide h-full w-full object-cover" />
+              <img src="./assets/college/5.jpg" alt="Highlight 5" class="slide h-full w-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
 
     <!-- Placeholders for upcoming sections -->
     <section id="updates" class="py-12 sm:py-16 scroll-mt-28 sm:scroll-mt-32">
@@ -619,6 +680,53 @@
       if (w && location.protocol === 'file:') {
         w.classList.remove('hidden');
       }
+    })();
+  </script>
+  <script>
+    // Highlights carousel autoplay
+    (function(){
+      const container = document.querySelector('#highlights .carousel');
+      if (!container) return;
+      const slides = Array.from(container.querySelectorAll('.slide'));
+      if (slides.length <= 1) return;
+      let i = 0;
+      const show = (idx) => {
+        slides.forEach((el, n) => el.classList.toggle('active', n === idx));
+      };
+      setInterval(() => {
+        i = (i + 1) % slides.length;
+        show(i);
+      }, 3000);
+    })();
+
+    // Confetti on timeline section enter
+    (function(){
+      const timelineSection = document.getElementById('timeline');
+      if (!timelineSection) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Burst from left and right when timeline enters view
+            confetti({
+              particleCount: 60,
+              angle: 60,
+              spread: 70,
+              origin: { x: 0, y: 0.5 }
+            });
+            confetti({
+              particleCount: 60,
+              angle: 120,
+              spread: 70,
+              origin: { x: 1, y: 0.5 }
+            });
+            // Unobserve after first trigger
+            observer.unobserve(timelineSection);
+          }
+        });
+      }, { threshold: 0.1 }); // Trigger when 10% visible
+
+      observer.observe(timelineSection);
     })();
   </script>
 </body>
